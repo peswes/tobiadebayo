@@ -1,186 +1,646 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tobi Adebayo</title>
 
-  <link rel="stylesheet" href="main.css" />
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Tobi Adebayo Art</title>
+  <meta name="title" content="Tobi Adebayo Art">
+  <meta name="description" content="This is an art website.">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="assets/images/4886bdcd-bc1a-4b65-8278-e03c558f622f.jpg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - custom font link
+  -->
+  <link rel="stylesheet" href="./assets/font/font.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/loading.svg">
+  <link rel="preload" as="image" href="./assets/images/loading-circle.svg">
+
 </head>
-<body>
-  <header>
-    <div class="content">
-      <h1>TOBI ADEBAYO</h1>
-      <h2>COMING SOON</h2>
-      <p>Site Under Construction</p>
 
-    </div>
+<body class="active" id="top">
+
+  <!-- 
+    -#PRELOADING
+  -->
+
+  <div class="loading" data-loading>
+    <img src="assets/images/4886bdcd-bc1a-4b65-8278-e03c558f622f.jpg" width="55" height="55" alt="loading" class="img">
+    <img src="./assets/images/loading-circle.svg" width="70" height="70" alt="" class="circle">
+  </div>
+
+
+
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="assets/images/4886bdcd-bc1a-4b65-8278-e03c558f622f.jpg" width="40" height="40" alt="Tobi Adebayo Art">
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="assets/images/4886bdcd-bc1a-4b65-8278-e03c558f622f.jpg" width="140" height="40" alt="Tobi Adebayo Art" class="img">
+          </a>
+
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <span class="span one"></span>
+            <span class="span two"></span>
+          </button>
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#gallery" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#gallery4" class="navbar-link" data-nav-link>Gallery</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#publications" class="navbar-link" data-nav-link>Publications</a>
+          </li>
+
+
+          <li class="navbar-item">
+            <a href="assets/contact.html" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+        </ul>
+
+        
   </header>
-  <style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: montserrat, sans-serif;
-}
 
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  background-image: url("./575d7464-50dc-4771-9d7f-ec45f3a3f4ab.jpg");
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-header:after {
-  display: block;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-  background-color: rgba(34, 34, 34, 0.5);
-}
-header .content {
-  position: relative;
-  z-index: 1;
-}
-header .content h1 {
-  color: #FFF;
-  font-size: 14px;
-  font-weight: 900;
-}
-header .content h1 span {
-  font-weight: 400;
-}
-p{
-  color: white;
-}
-@media screen and (min-width: 480px) {
-  header .content h1 {
-    font-size: 36px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .content h1 {
-    font-size: 42px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  header .content h1 {
-    font-size: 56px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header .content h1 {
-    font-size: 40px;
-  }
-}
-header .content h2 {
-  color: #FFF;
-  font-size: 42px;
-  font-weight: 900;
-  margin: 30px 0px;
-}
-@media screen and (min-width: 480px) {
-  header .content h2 {
-    font-size: 56px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .content h2 {
-    font-size: 72px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  header .content h2 {
-    font-size: 96px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header .content h2 {
-    font-size: 80px;
-  }
-}
-header .content .countdown {
-  color: #FFF;
-  font-size: 36px;
-  font-weight: 400;
-}
-@media screen and (min-width: 480px) {
-  header .content .countdown {
-    font-size: 42px;
-  }
-}
-@media screen and (min-width: 768px) {
-  header .content .countdown {
-    font-size: 56px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  header .content .countdown {
-    font-size: 72px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  header .content .countdown {
-    font-size: 88px;
-  }
-}
 
-/*# sourceMappingURL=main.css.map */
 
-  </style>
-<script>
-  // Setup End Date for Countdown (getTime == Time in Milleseconds)
-let launchDate = new Date("Jan 20, 2025 12:00:00").getTime();
 
-// Setup Timer to tick every 1 second
-let timer = setInterval(tick, 1000);
+  <main>
+    <article>
 
-function tick () {
-  // Get current time
-  let now = new Date().getTime();
-  // Get the difference in time to get time left until reaches 0
-  let t = launchDate - now;
+      <!-- 
+        - #HERO
+      -->
 
-  // Check if time is above 0
-  if (t > 0) {
-    // Setup Days, hours, seconds and minutes
-    // Algorithm to calculate days...
-    let days = Math.floor(t / (1000 * 60 * 60 * 24));
-    // prefix any number below 10 with a "0" E.g. 1 = 01
-    if (days < 10) { days = "0" + days; }
-    
-    // Algorithm to calculate hours
-    let hours = Math.floor((t % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    if (hours < 10) { hours = "0" + hours; }
+      <section class="section hero" id="home" aria-label="home">
+        <div class="container">
 
-    // Algorithm to calculate minutes
-    let mins = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
-    if (mins < 10) { mins = "0" + mins; }
+          <img src="./assets/images/575d7464-50dc-4771-9d7f-ec45f3a3f4ab.jpg" width="322" height="322" alt="" class="Tobi Adebayo Art">
 
-    // Algorithm to calc seconds
-    let secs = Math.floor((t % (1000 * 60)) / 1000);
-    if (secs < 10) { secs = "0" + secs; }
+          <div class="hero-content">
 
-    // Create Time String
-    let time = `${days} : ${hours} : ${mins} : ${secs}`;
+            <h1 class="h1 hero-title">Tobi Adebayo</h1>
 
-    // Set time on document
-    document.querySelector('.countdown').innerText = time;
-  }
-}
-</script>
+            <div class="wrapper h2">
+              <strong class="strong" data-letter-effect>Drawings</strong>
+              <strong class="strong" data-letter-effect>Mixed Media</strong>
+              <strong class="strong" data-letter-effect>Stampings</strong>
+              <strong class="strong" data-letter-effect>Digital Art</strong>
+              <strong class="strong" data-letter-effect>NFT</strong>
+            </div>
+
+
+            <p class="hero-text">Seeking to reform people,systems and structures by sparking meaningful conservations and bringing people into tangible experience through his art</p>
+          </div>
+
+        </div>
+
+        <img src="./assets/images/hero-shape.svg" width="211" height="189" alt="" class="shape">
+
+      </section>
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section hero" id="gallery" aria-label="home">
+        <div class="container">
+
+      <section class="banner" id="cart">
+        <div class="section__container banner__container">
+          <div class="banner__image">
+            <img src="assets/images/IMG_3581.JPG" alt="Tobi Adebayo Art" class="img2"/>
+          </div>
+          <div class="banner__content">
+            <h2 class="section__header">
+              About<span>Tobi Adebayo</span>
+            </h2>
+            <p style="color: black;">
+              Tobi Adebayo (born Adebayo Oluwatobi James, 2000) is a visual artist renowned for his intriguing and thought-provoking works that inspire unity, hope and Faith (UHF). Born and raised in Ibadan, Nigeria, before moving to another city at age 9. Tobi’s creative journey began at a tender age, nurtured by his family’s rich artistic heritage, where everyone has their diverse creative abilities.
+            </p>
+            <div class="banner__btn">
+              <button class="btn">
+                Read More
+                <span><i class="ri-arrow-right-line"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <!-- 
+        - #GALLERY
+      -->
+
+      <section class="section gallery" id="gallery4">
+        <div class="container">
+
+          <ul class="gallery-list">
+
+            <li class="gallery-item" data-reveal>
+
+              <div class="gallery-card">
+                  <img src="assets/images/5ca5c767-3188-401a-8fe6-072c2ecc7dc3.jpg" width="450" height="625" loading="lazy" alt="FAME"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">FAME</a>
+                  </h3>
+
+                  <span class="card-tag">2020</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/5ca5c767-3188-401a-8fe6-072c2ecc7dc3.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/575d7464-50dc-4771-9d7f-ec45f3a3f4ab.jpg" width="450" height="625" loading="lazy"
+                    alt="Happiness Within" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">Happiness Within</a>
+                  </h3>
+
+                  <span class="card-tag">2020</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/575d7464-50dc-4771-9d7f-ec45f3a3f4ab.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+            </li>
+
+            <li class="gallery-item" data-reveal>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/55139852-bcd1-4f06-bb7d-b20475e69cf8.jpg" width="450" height="625" loading="lazy" alt="The Goat"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">The Goat</a>
+                  </h3>
+
+                  <span class="card-tag">2021</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/55139852-bcd1-4f06-bb7d-b20475e69cf8.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/3f46ecb3-b54e-49fa-a2a1-6f073cd4b2a7.jpg" width="450" height="625" loading="lazy" alt="JONES"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">JONES</a>
+                  </h3>
+
+                  <span class="card-tag">2022</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/3f46ecb3-b54e-49fa-a2a1-6f073cd4b2a7.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+            </li>
+
+            <li class="gallery-item" data-reveal>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/e43ce081-dcf0-4c98-abdb-f62ebab65395.jpg" width="450" height="625" loading="lazy" alt="H.E Peter Obi"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">H.E Peter Obi</a>
+                  </h3>
+
+                  <span class="card-tag">2022</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/e43ce081-dcf0-4c98-abdb-f62ebab65395.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/4a0fc55d-33bf-476a-bab0-46f74a659002.jpg" width="450" height="625" loading="lazy" alt="DISCREPANCY"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">DISCREPANCY</a>
+                  </h3>
+
+                  <span class="card-tag">2021</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/4a0fc55d-33bf-476a-bab0-46f74a659002.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+            </li>
+
+            <li class="gallery-item" data-reveal>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/088cb1e4-5ef9-42bf-bd99-ff578af1807e.jpg" width="450" height="625" loading="lazy"
+                    alt="The AJUDUAs" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">The AJUDUAs</a>
+                  </h3>
+
+                  <span class="card-tag">2021</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/088cb1e4-5ef9-42bf-bd99-ff578af1807e.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+              <div class="gallery-card">
+
+                <figure class="card-banner img-holder has-before" style="--width: 450; --height: 625;">
+                  <img src="assets/images/949b9e44-57de-4950-b854-97712b612fae.jpg" width="450" height="625" loading="lazy"
+                    alt="Pst. Bolaji Idowu" class="img-cover">
+                </figure>
+
+                <div class="card-content">
+                  <h3 class="h6">
+                    <a href="#" class="card-title">Pst. Bolaji Idowu</a>
+                  </h3>
+
+                  <span class="card-tag">2022</span>
+                </div>
+
+                <a href="#" class="btn-icon">
+                  <img src="assets/images/949b9e44-57de-4950-b854-97712b612fae.jpg" width="43" height="20" loading="lazy"
+                    alt="arrow-forward icon">
+                </a>
+
+              </div>
+
+            </li>
+
+          </ul>
+          <a href="#service" class="scroll-down">
+       view more
+          </a>
+
+          <img src="./assets/images/gallery-shape.svg" width="220" height="78" loading="lazy" alt="" class="shape">
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CATEGORY
+      -->
+
+      <section class="section category" aria-label="photography category">
+        <div class="container">
+          <li class="category-item" data-reveal>
+            <a href="#" class="category-card">
+
+              <h3 class="h4 card-title">Drawings</h3>
+
+              <!-- <figure class="card-banner img-holder" style="--width: 600; --height: 600;"> -->
+                <video width="320" height="240" controls>
+                  <source src="assets/images/WhatsApp Video 2025-01-17 at 3.10.31 AM.mp4" type="video/mp4">
+                  <source src="movie.ogg" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+               
+              </figure>
+
+            </a>
+          </li>
+          <ul class="category-list">
+
+      
+
+            <li class="category-item" data-reveal>
+              <a href="#" class="category-card">
+
+                <h3 class="h4 card-title">Drawings</h3>
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 690;">
+                  <img src="assets/images/3f46ecb3-b54e-49fa-a2a1-6f073cd4b2a7.jpg" width="600" height="690" loading="lazy" alt="Tobi Adebayo Art"
+                    class="img-cover">
+                </figure>
+
+              </a>
+            </li>
+
+            <li class="category-item" data-reveal>
+              <a href="#" class="category-card">
+
+                <h3 class="h4 card-title">Drawings</h3>
+
+                <figure class="card-banner img-holder" style="--width: 600; --height: 690;">
+                  <img src="assets/images/b2630c9e-e5c5-4421-98d8-5a76896c5d71.jpg" width="600" height="690" loading="lazy" alt="Tobi Adebayo Art"
+                    class="img-cover">
+                </figure>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" id="publications" aria-label="about me">
+        <div class="container">
+
+
+
+            <h2 class="h2 section-title" data-reveal="right">
+              Pulications
+            </h2>
+
+            <div class="wrapper has-before" data-reveal="right">
+
+              <p class="section-text">
+         
+                <em class="em">
+                  <br></em>
+                2024 SoccerNet NG - Atalanta star Lookman stunned by young Nigerian artist’s unique stamp artwork - 
+ 
+                <em class="em">
+                 
+                  <p style="margin-top: 1px;">
+                    <a href="https://soccernet.ng/2024/12/this-is-amazing-atalanta-star-lookman-stunned-by-young-nigerian-artists-unique-stamp-artwork.html"><u>https://soccernet.ng/2024/12/this-is-amazing-atalanta-star-lookman-stunned-by-young-nigerian-artists-unique-stamp-artwork.html</u></a>
+
+                    
+            </div>
+
+
+
+       
+
+
+          </div>
+
+          <figure class="about-banner" data-reveal="left">
+
+         
+
+        </div>
+      </section>
+
+
+      
+      <section class="section about" id="about" aria-label="about me">
+        <div class="container">
+
+          <div class="about-content">
+
+            <h2 class="h2 section-title" data-reveal="right">
+            </h2>
+
+            <div class="wrapper has-before" data-reveal="right">
+
+              <p class="section-text">
+         
+                <em class="em">
+                  <br></em>
+                  2021 Talku Talku Magazine - Come Face to Face with Tobi Adebayo, a Truth Seeker, and Revolutionary - 
+                <em class="em">
+                 
+                  <p style="margin-top: 1px;">
+                    <a href="https://magazine.talkutalku.com/come-face-to-face-with-tobi-adebayo-a-truth-seeker/"><u>https://magazine.talkutalku.com/come-face-to-face-with-tobi-adebayo-a-truth-seeker/</u></a>
+
+            </div>
+
+
+
+       
+
+
+          </div>
+
+          <figure class="about-banner" data-reveal="left">
+
+         
+
+        </div>
+      </section>
+
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top section" id="contact">
+      <div class="container">
+
+        <p class="section-subtitle" data-reveal>Contact Us</p>
+
+        <h2 class="h2 section-title" data-reveal>
+          Book your first art meeting with us. Send us a message.
+        </h2>
+
+        <a href="#" class="btn-icon" data-reveal>
+          <img src="./assets/images/arrow-forward.svg" width="43" height="20" loading="lazy" alt="arrow-forward icon">
+        </a>
+
+        <img src="assets/images/91b74da5-5b4d-4d34-a80c-c3fabc5f6bb2.jpg" width="159" height="176" loading="lazy" alt="Tobi Adebayo Art"
+          class="abs-img abs-img-1" data-reveal>
+
+        <img src="assets/images/6618309f-55c2-4102-880c-5302f06ca2ac.jpg" width="265" height="275" loading="lazy" alt="Tobi Adebayo Art"
+          class="abs-img abs-img-2" data-reveal>
+
+        <img src="assets/images/6618309f-55c2-4102-880c-5302f06ca2ac.jpg" width="303" height="272" loading="lazy" alt="Tobi Adebayo Art"
+          class="abs-img abs-img-3" data-reveal>
+
+        <img src="assets/images/6618309f-55c2-4102-880c-5302f06ca2ac.jpg" width="175" height="175" loading="lazy" alt="Tobi Adebayo Art"
+          class="abs-img abs-img-4" data-reveal>
+<!-- 
+        <img src="./assets/images/foo" width="185" height="134" loading="lazy" alt="" class="shape"> -->
+<p><Strong>Phone Number</Strong>: +2348079924774</p>
+<p><strong>Gmail</strong>: tobiadebayoart@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+
+
+        <ul class="social-list">
+
+
+          <li>
+            <a href="https://www.instagram.com/tobi_adebayo_?igsh=eGt5ZGU2d2ZzbWR5&utm_source=qr" class="social-link">Insta.</a>
+          </li>
+
+
+          <li>
+            <a href="https://www.linkedin.com/in/tobi-adebayo-13b97b1aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="social-link">Link.</a>
+          </li>
+
+          <li>
+            <a href="https://x.com/tobi_adebayo_?s=21" class="social-link">Tw.</a>
+          </li>
+
+          <li>
+            <a href="https://www.facebook.com/share/19VzXrAtHp/?mibextid=wwXIfr" class="social-link">Fa.</a>
+          </li>
+
+          <li>
+            <a href="https://www.tiktok.com/@tobiadebayoart?_t=ZM-8t4DQRfYpGv&_r=1" class="social-link">Tik.</a>
+          </li>
+        </ul>
+
+        <p class="copyright"> @2024 Tobi Adebayo Art 💖</p>
+
+      </div>
+    </div>
+
+    <div class="footer-bg has-before">
+      <img src="assets/images/99fcba93-4d0e-40e8-a10b-3c4331f15a49.jpg" width="1920" height="1135" loading="lazy" alt="Tobi Adebayo Art"
+        class="img-cover">
+    </div>
+
+  </footer>
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+    - #CUSTOM CURSOR
+  -->
+
+  <div class="cursor" data-cursor></div>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>
