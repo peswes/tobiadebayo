@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tobi Adebayo Art</title>
+    <link rel="stylesheet" href="../css/contact.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    
+</head>
+
+<style>
+ 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+  background-color: black;
+    overflow: hidden;
+    font-family: 'Outfit';
+}
+.contact-container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.contact-left{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+}
+.conatct-left-title{
+    font-weight: 600;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+.conatct-left-title hr{
+    border: none;
+    width: 120px;
+    height: 5px;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+} 
+.contact-inputs{
+    width: 400px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding-left: 25px;
+    font-weight: 500;
+    color: black;
+    border-radius: 50px;
+}
+.contact-left textarea{
+    height: 140px;
+    padding-top: 15px;
+    border-radius: 20px;
+}
+.contact-inputs:focus{
+    border: 2px solid black;
+}
+.contact-inputs::placeholder{
+    color: black;
+}
+.contact-left button{
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    gap: 10px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(270deg, rgb(210, 210, 210), rgb(0, 0, 0));
+    cursor: pointer;
+}
+
+.contact-left button i{
+    height: 15px;
+}
+.contact-right img{
+    width: 299px;
+}
+@media (max-width:800px){
+    .contact-inputs{
+        width: 80vw 
+    }
+    .contact-right{
+        display: none;
+    }
+    .conatct-left-title{
+        font-size: 20px;
+    }
+}
+
+</style>
+<body>
+    
+              
+      <ul class="links">
+      
+        
+    </header>
+
+
+   <div class="contact-container">
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+
+        <div class="conatct-left-title">
+            <h2>Get In Touch</h2>
+            <hr>
+        </div>
+        
+  <input type="hidden" name="access_key" value="42f352bf-2426-42f3-89ae-e79b0bc59d6a">
+        <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+        <input type="text" name="email" placeholder="Your Email" class="contact-inputs" required>
+        <textarea name="message" class="contact-inputs" placeholder="Your Message"></textarea>
+        <button type="submit">Submit <i></i></button>
+    </form>
+    <div class="contact-right">
+        <img src="../pictures/pngaaa.com-4091223.png" alt="">
+    </div>
+   </div> 
+
+                
+  <div class="nav-header">
+
+    
+
+    <button class="nav-toggle">
+   
+    </button>
+  </div>
+</body>
+<script src="../javascript/home.js"></script>
+<script src="../javascript/home2.js"></script>
+</html>
