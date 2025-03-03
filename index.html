@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Tobi Adebayo" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>Tobi Adebayo</title>
+
+  <!-- Favicon -->
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <link rel="icon" href="img/core-img/favicon.png">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+
+  <link rel="stylesheet" href="css/aos.css">
+
+  <link rel="stylesheet" href="css/style-2.css">
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+<style>
+    /* Fix visibility issues for the carousel */
+.owl-carousel {
+  display: block !important;
+}
+
+/* Ensure images are properly styled within the slider */
+.owl-carousel .item img {
+  width: 100%; 
+  height: auto; 
+  max-height: 300px; 
+  object-fit: cover; 
+  border-radius: 5px;
+}
+
+/* Optional:
+.owl-carousel .item {
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the headings below images */
+.owl-carousel .item h3 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Center-align the navigation arrows */
+.owl-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Style for the arrow buttons */
+.owl-prev-icon, .owl-next-icon {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  margin: 0 15px;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.owl-prev-icon:hover, .owl-next-icon:hover {
+  color: #007bff;
+}
+.contact-me-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.contact-me-section .section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffff;
+}
+
+.contact-me-section p {
+  font-size: 1rem;
+  line-height: 1.8;
+  text-align: justify;
+  color: #ffff;
+}
+
+.contact-me-section .btn-prim {
+  background-color: black;
+  color: #fff;
+  padding: 10px 20px;
+  border: 2px solid #ffff;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+}
+
+.contact-me-section .btn-prim:hover {
+  background-color: #ffff;
+  color: black;
+  border: black;
+}
+
+/* Responsive adjustments */
+@media (max-width: 425px) {
+  .contact-me-section .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-me-section .col-md-6 {
+    margin-bottom: 20px;
+  }
+  .contact-me-section .section-title {
+      font-size: 1rem;
+  }
+}
+
+</style>
+
+<script>
+  // Lazy-load images
+  document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[data-src]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          img.src = img.dataset.src;
+          observer.unobserve(img);
+        }
+      });
+    });
+
+    images.forEach(image => observer.observe(image));
+  });
+</script>
+
+</head>
+
+<body>
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="wrapper">
+      <div class="cssload-loader"></div>
+    </div>
+  </div>
+<header class="header-area">
+      <!-- Main Header Start -->
+      <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+          <!-- Classy Menu -->
+          <nav class="classy-navbar justify-content-between" id="monaNav">
+  
+            <!-- Background Curve -->
+            <div class="bg-curve" style="background-image: url(img/core-img/curve.png);"></div>
+  
+            <!-- Logo -->
+            <a class="nav-brand" href="index.html"><img src="img/core-img/logo.png" width="96px" height="25px" alt=""></a>
+  
+            <!-- Navbar Toggler -->
+            <div class="classy-navbar-toggler">
+              <span class="navbarToggler"><span></span><span></span><span></span></span>
+            </div>
+  
+            <!-- Menu -->
+            <div class="classy-menu">
+              <!-- Menu Close Button -->
+              <div class="classycloseIcon">
+                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+              </div>
+  
+              <!-- Nav Start -->
+              <div class="classynav">
+                <ul id="nav">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="projects.html">Artworks</a></li>
+                  <li><a href="afeproject.html">AFEProject</a></li>
+                  <li><a href="commission.html">Commission</a></li>
+                  <li><a href="publications.html">Publications</a></li>
+                  <li><a href="NFTs.html">NFTs</a></li>
+                  <li><a href="contact.html">Contact me</a></li>
+                </ul>
+              </div>
+              <!-- Nav End -->
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+  <!-- ***** Header Area End ***** -->
+
+  <!-- ***** Top Search Area Start ***** -->
+  <div class="top-search-area">
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <!-- Close Button -->
+            <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+            <!-- Form -->
+            <form action="https://www.tobiadebayo.com/index.html" method="post">
+              <input type="search" name="top-search-bar" class="form-control" placeholder="Search and hit enter...">
+              <button type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Top Search Area End ***** -->
+
+  
+          
+  <section class="welcome-area">
+     
+      <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" style="margin-top: 70px;">
+          <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+            <li data-target="#myCarousel" data-slide-to="4"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="first-slide" src="admin/slides/images/7" alt="5">
+              <div class="container">
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <img class="second-slide" src="admin/slides/images/490255.jpg" alt="1">
+              <div class="container">
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <img class="third-slide" src="admin/slides/images/652703.jpg" alt="4">
+              <div class="container">
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <img class="third-slide" src="admin/slides/images/326514.jpg" alt="3">
+              <div class="container">
+              </div>
+            </div>
+            <div class="carousel-item ">
+              <img class="third-slide" src="admin/slides/images/604718.jpg" alt="2">
+              <div class="container">
+              </div>
+            </div>   
+        </div>
+    
+  </section>
+  <div class="site-section site-blocks-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-6 col-lg-6 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="">
+          <a class="block-2-item" href="about.html">
+            <figure class="image">
+              <img src="images/About.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3>About</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="">
+          <a class="block-2-item" href="projects.html">
+            <figure class="image">
+              <img src="images/Artworks.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3>Artworks</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="100">
+          <a class="block-2-item" href="afeproject.html">
+            <figure class="image">
+              <img src="images/AFEProjects.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+             <h3>AFEProject</h3>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="100">
+          <a class="block-2-item" href="commissions.html">
+            <figure class="image">
+              <img src="images/commission.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+             <h3>Commission</h3>
+            </div>
+          </a>
+        </div>
+         <div class="col-sm-6 col-md-6 col-lg-6 mb-5 mb-lg-4" data-aos="fade" data-aos-delay="200">
+          <a class="block-2-item" href="NFTs.html">
+            <figure class="image">
+              <img src="images/NFTs.jpg" alt="" class="img-fluid">
+            </figure>
+            <div class="text">
+              <h3>NFTs</h3>
+            </div>
+          </a>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+<section class="contact-me-section" style="background-color: #000; color: #fff; padding: 50px 20px;">
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- Image -->
+      <div class="col-md-6 text-center mb-4 mb-md-0">
+        <img src="images/contact1.png" alt="Tobi Adebayo" class="img-fluid" style="border-radius: 10px;">
+      </div>
+      <!-- Text -->
+      <div class="col-md-6">
+        <h2 class="section-title mb-4">CONNECT WITH ME</h2>
+        <p class="mb-4">
+          I'd love to hear from you! Whether you have questions, feedback, or just want to say hello, I'm here to listen.
+        </p>
+        <a href="contact.html" class="btn-prim mt-3">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+   <a href="#" id="pop" data-toggle="modal" data-target="#myModal" class="site-btn" style="display:none;">LET'S TALK</a>
+ <!-- ***** Footer Area Start ***** -->
+   <footer class="footer-area section-padding-80-0">
+    <div class="container">
+      <div class="row justify-content-between">
+
+        <!-- Single Footer Widget -->
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+          <div class="single-footer-widget mb-60">
+            <!-- Logo -->
+            <a href="#" class="d-block mb-4"><img src="img/core-img/logo.png" width="50%" height="50%" alt=""></a>
+            <div class="copywrite-text">
+              <p>&copy; 
+Copyright <script>document.write(new Date().getFullYear());</script>
+</p>
+            </div>
+          </div>
+        </div>
+
+
+    </div>
+  </footer>
+
+  <!-- ******* All JS ******* -->
+  <!-- jQuery js -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/owl.carousel.min.js"></script>
+<script>
+$(document).ready(function () {
+  $(".nonloop-block-3").owlCarousel({
+    loop: true, // Enable infinite looping
+    margin: 10, // Space between items
+    nav: true, // Enable navigation arrows
+    dots: false, // Disable dots
+    autoplay: true, // Enable auto-scroll
+    autoplayTimeout: 3000, // Set auto-scroll interval (3000ms = 3 seconds)
+    autoplayHoverPause: true, // Pause on hover
+    navText: [
+      '<span class="icon-arrow_back"></span>', // Left arrow
+      '<span class="icon-arrow_forward"></span>'  // Right arrow
+    ],
+    responsive: {
+      0: { items: 1 }, // Show 1 item on small screens
+      600: { items: 2 }, // Show 2 items on medium screens
+      1000: { items: 3 } // Show 3 items on large screens
+    }
+  });
+});
+
+</script>
+
+
+  <!-- Bootstrap js -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- All js -->
+  <script src="js/mona.bundle.js"></script>
+  <!-- Active js -->
+  <script src="js/default-assets/active.js"></script>
+ 
+  <script src="js/jquery-ui.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.magnific-popup.min.js"></script>
+  <script src="js/aos.js"></script>
+
+  <script src="js/main.js"></script>
+
+</body>
+
+
+<!-- Mirrored from www.olamide.ng/index by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 25 Jan 2025 10:33:53 GMT -->
+</html>
