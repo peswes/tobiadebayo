@@ -64,6 +64,7 @@ img {
   top: 0;
   right: 0;
   left: 0;
+  background-color: #000000;
 }
 .classy-nav-container.box-skins .classynav>ul>li {
   background-color: #1abc9c;
