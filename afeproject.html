@@ -27,9 +27,8 @@
   
     <style>
       .afep-container {
-          width: 90%;
+          width: 80%;
           margin: 0 auto;
-          margin-top: 50px;
           display: flex;
           flex-direction: column;
           gap: 40px;
@@ -54,9 +53,12 @@
           flex-direction: row-reverse;
       }
       @media (max-width: 768px) {
-          .section {
+          .afep-section {
               flex-direction: column !important;
               text-align: center;
+          }
+          .afep-section .image {
+              order: -1;
           }
       }
   </style>
