@@ -2149,6 +2149,27 @@ ul {
   justify-content: center;
    
 }
+  #social-media-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 40px;
+  }
+    @media only screen and (max-width: 767px) {
+      .single-contact-card .contact-icon {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 50px;
+        flex: 0 0 50px;
+        max-width: 50px;
+        width: 50px; } 
+      }
+    .single-contact-card .contact-icon i {
+      color: #000000;
+      font-size: 42px; }
+      @media only screen and (max-width: 767px) {
+        .single-contact-card .contact-icon i {
+          font-size: 30px; } }
   .single-contact-card h2 {
     font-size: 36px;
     margin-bottom: 20px; }
