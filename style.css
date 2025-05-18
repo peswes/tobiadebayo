@@ -76,7 +76,9 @@ h6 {
   font-family:'Bahnschrift Regular';
   color: #232323;
   line-height: 1.4;
-  font-weight: 600; }
+  font-weight: 600; 
+  text-align: center;
+}
 
 a,
 a:active,
@@ -218,7 +220,7 @@ ul {
   margin-bottom: 70px; }
 
 .mb-80 {
-  margin-bottom: 80px; }
+  margin-bottom: 10px; }
 
 .mb-100 {
   margin-bottom: 100px; }
@@ -2147,6 +2149,7 @@ ul {
   z-index: 1;
   text-align: center;
   justify-content: center;
+  align-items: center;
    
 }
   #social-media-icons {
