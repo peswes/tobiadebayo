@@ -908,6 +908,9 @@ padding: 100px ;
 .hero p {
   font-size: 20px;
   color: #000;
+  justify-content: center;
+  text-align: center;
+  margin: 0 100px 0 100px;
 }
 
 .cta {
