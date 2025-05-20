@@ -1,30 +1,20 @@
-function emailSend() {
-    var userName = document.getElementById("fullName").value;
-    var phone = document.getElementById("phone").value;
-    var email = document.getElementById("emailId").value;
-    var message = document.getElementById("resume").value;
-
-    messageBody = "Name: " + userName + 
-    "<br> Email:" + email + 
-    "<br> Message: " + message + 
-    "<br> Phone: " + phone;
-
-    email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "tobiadebayoart@gmail.com",
-    Password : "9DD4B90BB60EAD7B89F8B4A17E464177E036",
-    To : 'jackeywalley@gmail.com',
-    From : "tobiadebayo.com",
-    Subject : "New Entry from Tobiadebayo.com",
-    Body : messageBody
-}).then(
-  message => {
-    if (message == 'OK') {
-        swal("Successful", "Thanks for reaching out to us, we'll get back to you as soon as possible!", "success");
-    } else {
-        swal("Error!", "Kindly enter valid details!", "error");
+function sendMail() {
+    let parms = {
+  userName: document.getElementById("fullName").value,
+  phone: document.getElementById("phone").value,
+  email: document.getElementById("emailId").value,
+  message: document.getElementById("resume").value,
     }
-  }
-);
-    return false;
+
+        document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    emailjs.send("service_dlsn8rc", "template_lxflyn5", parms)
+      .then(() => {
+        alert("Message sent successfully!");
+      }, (err) => {
+        alert("Failed to send message. Please try again.");
+        console.log("EmailJS error:", err);
+      });
+});
 }

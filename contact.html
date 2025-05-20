@@ -163,7 +163,7 @@
                 <label for="resume">Message:</label>
                 <textarea class="form-control" name="message" placeholder="Message" rows="8" cols="80" id="resume" style="padding: 20px;"></textarea>
               </div>
-              <button type="submit" name="submit" class="btn mona-btn btn-2 mt-15">Contact Me</button>
+              <button type="submit" name="submit" class="btn mona-btn btn-2 mt-15" onclick="sendMail()">Contact Me</button>
             </form>
           </div>
         </div>
@@ -251,7 +251,17 @@ Copyright <script>document.write(new Date().getFullYear());</script>
   <!-- Active js -->
   <script src="js/default-assets/active.js"></script>
   <script src="js/default-assets/contact.js"></script>
-  
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "LL5SjuEdD7wqwOs3p",
+      });
+   })();
+</script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
