@@ -9,9 +9,11 @@ function sendMail() {
 
     emailjs.send("service_dlsn8rc", "template_lxflyn5", parms)
       .then(() => {
-        alert("Message sent successfully!");
+       swal("Successful", "Message sent successfully!", "success");
       }, (err) => {
-        alert("Failed to send message. Please try again.");
+        swal("Error", "Message sent successfully!", "error");
         console.error("EmailJS error:", err);
       });
 }
+
+ 
