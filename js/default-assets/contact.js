@@ -17,7 +17,7 @@ function sendMail() {
       .then(() => {
        swal("Successful", "Message sent successfully!", "success");
       }, (err) => {
-        swal("Error", "Message sent successfully!", "error");
+        swal("Error", "Message failed to send, Please try again!", "error");
         console.error("EmailJS error:", err);
       });
 }
