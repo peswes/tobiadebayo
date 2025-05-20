@@ -145,7 +145,7 @@
               <p>I'm here to listen. Share your thoughts, make enquiries ask questions or just say Hi - I'm looking forward to hearing from you!</p>
               </div>
 
-            <form>
+            <form onsubmit="sendMail(); return false;">
              <input type="hidden" name="todo" value="post">
               <div class="form-group">
                 <label for="fullName">Name:</label>
@@ -255,12 +255,10 @@ Copyright <script>document.write(new Date().getFullYear());</script>
   <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
 </script>
-<script type="text/javascript">
-   (function(){
-      emailjs.init({
-        publicKey: "LL5SjuEdD7wqwOs3p",
-      });
-   })();
+<!-- EmailJS -->
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("LL5SjuEdD7wqwOs3p"); // Replace with your actual EmailJS public key
 </script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

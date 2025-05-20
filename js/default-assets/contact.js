@@ -1,6 +1,6 @@
 function sendMail() {
     let parms = {
-        user_name: document.getElementById("fullName").value,
+        name: document.getElementById("fullName").value,
         phone: document.getElementById("phone").value,
         email: document.getElementById("emailId").value,
         message: document.getElementById("resume").value,
