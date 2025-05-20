@@ -7,6 +7,12 @@ function sendMail() {
         message: document.getElementById("message").value,
     };
 
+    messageBody = 
+        "Name: " + parms.name + "\n" +
+        "Phone: " + parms.phone + "\n" +
+        "Email: " + parms.email + "\n" +
+        "Message: " + parms.message;
+      
     emailjs.send("service_dlsn8rc", "template_lxflyn5", parms)
       .then(() => {
        swal("Successful", "Message sent successfully!", "success");
