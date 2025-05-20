@@ -14,7 +14,7 @@
   
     <!-- Favicon -->
     <link rel="stylesheet" href="fonts/icomoon/style.css">
-  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <link rel="icon" href="images/favicon.jpg">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -145,23 +145,23 @@
               <p>I'm here to listen. Share your thoughts, make enquiries ask questions or just say Hi - I'm looking forward to hearing from you!</p>
               </div>
 
-            <form action="https://www.tobiadebayo.com/contact.php" method="post">
+            <form onsubmit="return emailSend(); reset(); return false;">
              <input type="hidden" name="todo" value="post">
               <div class="form-group">
                 <label for="fullName">Name:</label>
-                <input type="text" class="form-control" name="full-name" placeholder="Full Name" id="fullName">
+                <input type="text" class="form-control" name="full-name" placeholder="Full Name" id="fullName" style="padding: 20px;" required>
               </div>
               <div class="form-group">
                 <label for="emailId">Email:</label>
-                <input type="email" class="form-control" name="email" placeholder="Email" id="emailId">
+                <input type="email" class="form-control" name="email" placeholder="Email" id="emailId" style="padding: 20px;" required>
               </div>
                 <div class="form-group">
                 <label for="phone">Phone No:</label>
-               <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 812 345 6789">
+               <input type="tel" id="phone" name="phone" class="form-control" placeholder="e.g. 234 812 345 6789" style="padding: 20px;" required>
              </div>
               <div class="form-group">
                 <label for="resume">Message:</label>
-                <textarea class="form-control" name="message" placeholder="Message" rows="8" cols="80" id="resume"></textarea>
+                <textarea class="form-control" name="message" placeholder="Message" rows="8" cols="80" id="resume" style="padding: 20px;"></textarea>
               </div>
               <button type="submit" name="submit" class="btn mona-btn btn-2 mt-15">Contact Me</button>
             </form>
@@ -250,7 +250,8 @@ Copyright <script>document.write(new Date().getFullYear());</script>
   <script src="js/mona.bundle.js"></script>
   <!-- Active js -->
   <script src="js/default-assets/active.js"></script>
-  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
   <script src="https://smtpjs.com/v3/smtp.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
