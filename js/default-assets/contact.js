@@ -5,13 +5,7 @@ function sendMail() {
         phone: document.getElementById("phone").value,
         email: document.getElementById("email").value,
         message: document.getElementById("message").value,
-    };
-
-    messageBody = 
-        "Name: " + parms.name + "\n" +
-        "Phone: " + parms.phone + "\n" +
-        "Email: " + parms.email + "\n" +
-        "Message: " + parms.message;
+    }
       
     emailjs.send("service_dlsn8rc", "template_lxflyn5", parms)
       .then(() => {
