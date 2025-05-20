@@ -1,9 +1,10 @@
 function sendMail() {
+
     let parms = {
-        name: document.getElementById("fullName").value,
+        name: document.getElementById("name").value,
         phone: document.getElementById("phone").value,
-        email: document.getElementById("emailId").value,
-        message: document.getElementById("resume").value,
+        email: document.getElementById("email").value,
+        message: document.getElementById("message").value,
     };
 
     emailjs.send("service_dlsn8rc", "template_lxflyn5", parms)
