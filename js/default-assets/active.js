@@ -239,29 +239,3 @@
       }
     });
   });
-
-
-function emailSend() {
-    var userName = document.getElementById("fullName").value;
-    var phone = document.getElementById("phone").value;
-    var email = document.getElementById("emailId").value;
-    var message = document.getElementById("resume").value;
-
-    messageBody = "Name: " + userName + 
-    "<br/> Email:" + email + 
-    "<br/> Message: " + message + 
-    "<br/> Phone: " + phone;
-
-    Email.send({
-    Host : "smtp.elasticemail.com",
-    Username : "tobiadebayoart@gmail.com",
-    Password : "9DD4B90BB60EAD7B89F8B4A17E464177E036",
-    To : "oluwaraphael16@gmail.com",
-    From : "tobiadebayoart@gmail.com",
-    Subject : "New Entry from Tobi Adebayo",
-    Body : messageBody
-}).then(
-  message => alert(message)
-);
-}
-
