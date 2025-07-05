@@ -1119,7 +1119,7 @@ a:hover {
     padding: 0 40px;
     overflow-x: auto;
     display: flex;
-    gap: 16px;
+    gap: 20px;
     scroll-snap-type: x mandatory;      /* Enable scroll snapping */
     -webkit-overflow-scrolling: touch;  /* Smooth scrolling on iOS */
     scrollbar-width: none;              /* Hide scrollbar on Firefox */
