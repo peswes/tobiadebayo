@@ -239,3 +239,39 @@
       }
     });
   });
+
+// This is a custom script for the commission slider.
+
+ document.addEventListener('DOMContentLoaded', function() {
+  const slider = document.querySelector('.cat-img-slider');
+  const slides = document.querySelectorAll('.cat-imgm');
+  const dots = document.querySelectorAll('.cat-slider-dots .dot');
+
+  if (!slider) return;
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const slide = slides[index];
+      if (!slide) return;
+
+      const slideLeft = slide.offsetLeft;
+      slider.scrollTo({
+        left: slideLeft,
+        behavior: 'smooth'
+      });
+
+      dots.forEach(dot => dot.classList.remove('active'));
+      dot.classList.add('active');
+    });
+  });
+
+  // Listen for scroll to update active dot
+  slider.addEventListener('scroll', function() {
+    const scrollLeft = slider.scrollLeft;
+    const slideWidth = slides[0].offsetWidth;
+    const index = Math.round(scrollLeft / slideWidth);
+
+    dots.forEach(dot => dot.classList.remove('active'));
+    if (dots[index]) dots[index].classList.add('active');
+  });
+});

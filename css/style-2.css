@@ -727,6 +727,12 @@ a:hover {
   border-radius: 20px;
 
 }
+@media screen and (max-width: 768px) {
+  .site-blocks-2 .block-2-item .image {
+    width: 92vw;
+    height: 450px;
+  }
+}
 .site-blocks-2 .block-2-item .image img {
   margin-bottom: 0;
   -webkit-transition: 0.3s all ease-in-out;
@@ -1041,13 +1047,13 @@ a:hover {
   align-items: center;
   text-align: center;
   margin: 0;
-  padding: 100px;
+  padding: 30px;
 }
 .catty{
   justify-content: center;
   display: flex;
   align-items: center;
-  margin: 0 0 100px 0 ;
+  margin: 50px 0 100px 0 ;
 }
 .cat-out{
    background-color: #212529;
@@ -1098,8 +1104,9 @@ a:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 5px 0 5px;
+    margin: 0 5px 20px 5px;
     border-radius: 20px;
+    padding-bottom: 10px;
   }
   .cat-out {
     width: 100%;
@@ -1113,6 +1120,7 @@ a:hover {
   }
   .cat-text{
     order: 1;
+    height: auto;
 
   }
   .cat-img-slider {
@@ -1144,6 +1152,31 @@ a:hover {
     border-radius: 20px;
     object-fit: cover;
   }
+
+.cat-slider-dots {
+  order: 3;
+  display: flex;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-top: 10px; /* adjust spacing */
+  justify-content: center;
+}
+
+.cat-slider-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #888;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.cat-slider-dots .dot.active {
+  width: 20px;
+  background: #fff;
+  border-radius: 999px;
+}
 }
 /* style for faqs */
 .faq-container {
