@@ -275,3 +275,25 @@
     if (dots[index]) dots[index].classList.add('active');
   });
 });
+
+
+$(document).ready(function () {
+  $(".nonloop-block-3").owlCarousel({
+    loop: true, // Enable infinite looping
+    margin: 10, // Space between items
+    nav: true, // Enable navigation arrows
+    dots: false, // Disable dots
+    autoplay: true, // Enable auto-scroll
+    autoplayTimeout: 3000, // Set auto-scroll interval (3000ms = 3 seconds)
+    autoplayHoverPause: true, // Pause on hover
+    navText: [
+      '<span class="icon-arrow_back"></span>', // Left arrow
+      '<span class="icon-arrow_forward"></span>'  // Right arrow
+    ],
+    responsive: {
+      0: { items: 1 }, // Show 1 item on small screens
+      600: { items: 2 }, // Show 2 items on medium screens
+      1000: { items: 3 } // Show 3 items on large screens
+    }
+  });
+});
