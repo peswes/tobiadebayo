@@ -679,7 +679,7 @@ a:hover {
   right: 0;
   bottom: 0;
   left: 0;
-  background: -moz-linear-gradient(
+  /*background: -moz-linear-gradient(
     top,
     transparent 0%,
     transparent 18%,
@@ -716,14 +716,16 @@ a:hover {
     rgba(0, 0, 0, 0.8) 99%,
     rgba(0, 0, 0, 0.8) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 );*/
 }
 .site-blocks-2 .block-2-item .image {
   position: relative;
   margin-bottom: 0;
   overflow: hidden;
-  max-height: 500px;
+  width: 500px;
+  height: 450px;
   border-radius: 20px;
+
 }
 .site-blocks-2 .block-2-item .image img {
   margin-bottom: 0;
