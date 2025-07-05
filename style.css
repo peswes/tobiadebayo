@@ -84,7 +84,7 @@ a,
 a:active,
 a:focus,
 a:hover {
-  color: #232323;
+  color: #ee0101;
   text-decoration: none;
   -webkit-transition-duration: 500ms;
   -o-transition-duration: 500ms;
@@ -533,6 +533,9 @@ ul {
       color: #ffffff; }
       .classy-nav-container .classy-navbar .classynav ul li a:focus, .classy-nav-container .classy-navbar .classynav ul li a:hover {
         color: #ee0101; }
+        .classy-nav-container .classy-navbar .classynav ul li a:focus, .classy-nav-container .classy-navbar .classynav ul li a:active {
+        color: #ee0101 !important; 
+      }
       @media only screen and (min-width: 992px) and (max-width: 1199px) {
         .classy-nav-container .classy-navbar .classynav ul li a {
           font-size: 14px;
@@ -572,7 +575,7 @@ ul {
 .classynav ul li.has-down > a::after,
 .classynav ul li.has-down.active > a::after,
 .classynav ul li.megamenu-item > a::after {
-  color: #ffffff; }
+  color: #ee0101; }
 
 .breakpoint-off .classynav ul li .dropdown {
   background-color: #000000; }
