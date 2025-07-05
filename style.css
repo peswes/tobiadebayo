@@ -2058,6 +2058,7 @@ ul {
     align-items: center;
     text-align: center;
     gap: 20px;
+    padding: 70px 10px 10px 10px !important;
   }
   
  .singlefoot  {
