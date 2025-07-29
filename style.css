@@ -2109,6 +2109,8 @@ ul {
   justify-content: center;
 }
 }
+
+
 .footer{
     max-width: 100vw;
     display: flex;
@@ -2160,7 +2162,6 @@ ul {
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: center;
   gap: 30px;
 }
@@ -2168,7 +2169,6 @@ ul {
   width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
   justify-content: center;
   align-items: center;
   margin-left: 0;
@@ -2181,6 +2181,7 @@ ul {
   gap: 20px;
   margin: 0;
 }
+
 .fourth-footer i {
   margin-right: 10px; /* or your accent color */
   font-size: 22px;
