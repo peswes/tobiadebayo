@@ -1,471 +1,333 @@
-# Tobi Adebayo Portfolio - Next.js Rewrite Plan
+# Tobi Adebayo Portfolio Website
 
 ## Project Overview
 
-**Current State:** Static HTML portfolio website with 9 pages built with vanilla HTML, CSS, Bootstrap, and jQuery.  
-**Goal:** Modernize and rewrite the entire codebase using Next.js 14+ with React, TypeScript, and modern tooling.
+**Tobi Adebayo** is a multi-disciplinary artist and activist renowned for thought-provoking works that inspire unity, hope, and faith. This website serves as his professional portfolio and online presence.
+
+**Current Tech Stack:** HTML5, CSS3, Bootstrap 5, jQuery, Owl Carousel, AOS  
+**Future Migration:** Next.js 14+ with React, TypeScript, and Tailwind CSS (see [TASKS.md](TASKS.md))
 
 ---
 
-## Current Architecture Analysis
+## About the Artist
 
-### Pages & Structure
-1. **index.html** - Home/Landing page with featured content blocks and CTA
-2. **about.html** - Artist bio and background
-3. **projects.html** - Artworks gallery with image previews
-4. **afeproject.html** - AFEProject (art for everyone initiative)
-5. **commission.html** - Commission opportunities
-6. **publications.html** - Publications/press
-7. **nfts.html** - NFT showcase
-8. **contact.html** - Contact form with email integration
-9. **features.html** - Additional features page (minimal usage)
-10. **illustration.html** - Illustration showcase (minimal usage)
-11. **painting.html** - Painting showcase (minimal usage)
-12. **portfolio.html** - Portfolio page (redundant with projects.html)
+**Full Name:** Adebayo Oluwatobi James  
+**Born:** 2000  
+**Location:** Nigeria
 
-### Key Features & Interactions
-- **Navigation:** Fixed header with responsive mobile menu (hamburger toggle)
-- **Styling:** Multi-layered CSS (Bootstrap, custom styles, animations, AOS)
-- **Animations:** Scroll animations (AOS - Animate On Scroll)
-- **Carousels/Sliders:** Owl Carousel for image galleries
-- **Forms:** Contact form with email submission (sendMail() function)
-- **Preloader:** Full-page loading animation
-- **Search Modal:** Top search functionality
-- **Gallery:** Magnific Popup for image lightbox viewing
-- **Footer:** Responsive footer with social links
-- **Icons:** icomoon custom font icons + Font Awesome
+Tobi's artistic journey began at a tender age and has evolved into a multifaceted creative practice spanning:
+- **Mediums:** Charcoal, graphites, acrylics, digital art, stamp art
+- **Philosophy:** "You cannot bring people into an experience of what you haven't experienced"
+- **Mission:** Use art as a tool for social impact and innovation through Art for Everyone (AFE)
 
-### Current Dependencies
-- Bootstrap 5.x
-- jQuery
-- jQuery UI
-- Owl Carousel 2
-- AOS (Animate On Scroll)
-- Magnific Popup
-- Font Awesome 6.4.2
-- icomoon custom icons
-- Slick Carousel
-- intl-tel-input
+### Key Achievements
+- Featured in various publications
+- Earned grants and completed 200+ commissions
+- Recognized by notable figures and collaborators
+- Active in community art initiatives and orphanage programs
+- Transitioned to professional art industry in 2018
 
 ---
 
-## Next.js Rewrite Plan
+## Website Pages & Content
 
-### Phase 1: Project Setup (Week 1)
-
-#### 1.1 Initialize Next.js Project
-```bash
-npx create-next-app@latest tobiadebayo --typescript --tailwindcss --eslint
-cd tobiadebayo
-```
-
-**Configuration:**
-- Next.js 14+ with App Router (not Pages Router)
-- TypeScript for type safety
-- Tailwind CSS (replacing Bootstrap & custom CSS)
-- ESLint for code quality
-- Prettier for formatting
-- PostCSS for styling
-
-#### 1.2 Project Structure
-```
-tobiadebayo/
-├── app/
-│   ├── layout.tsx          # Root layout with Header & Footer
-│   ├── page.tsx            # Home page
-│   ├── about/
-│   │   └── page.tsx
-│   ├── projects/
-│   │   └── page.tsx
-│   ├── afeproject/
-│   │   └── page.tsx
-│   ├── commission/
-│   │   └── page.tsx
-│   ├── publications/
-│   │   └── page.tsx
-│   ├── nfts/
-│   │   └── page.tsx
-│   ├── contact/
-│   │   └── page.tsx
-│   └── api/
-│       └── contact/
-│           └── route.ts    # API endpoint for contact form
-├── components/
-│   ├── Header.tsx
-│   ├── Footer.tsx
-│   ├── Navigation.tsx
-│   ├── MobileMenu.tsx
-│   ├── Preloader.tsx
-│   ├── ImageGallery.tsx
-│   ├── ContactForm.tsx
-│   ├── Carousel.tsx
-│   ├── Hero.tsx
-│   └── ...other reusable components
-├── hooks/
-│   ├── useScrollAnimation.ts
-│   └── usePreloader.ts
-├── lib/
-│   ├── constants.ts         # Site navigation, social links
-│   ├── email.ts            # Email sending service
-│   └── types.ts            # TypeScript interfaces
-├── styles/
-│   ├── globals.css         # Global Tailwind overrides
-│   └── animations.css      # Custom animations
-├── public/
-│   ├── images/
-│   ├── fonts/
-│   └── icons/
-├── tailwind.config.ts      # Tailwind configuration
-├── tsconfig.json
-├── next.config.ts
-└── package.json
-```
-
----
-
-### Phase 2: Core Components & Styling (Week 2)
-
-#### 2.1 Replace Bootstrap with Tailwind CSS
-- Convert all Bootstrap grid systems to Tailwind's flex/grid
-- Replace Bootstrap utilities with Tailwind equivalents
-- Remove Bootstrap dependency from package.json
-- Create Tailwind theme configuration with brand colors
-
-**Color Scheme:**
-- Primary: Black (#000000)
-- Secondary: Gray (#666666, #a6a6a6)
-- Accent: Red (#ee0101)
-- Background: White (#ffffff), Light Gray (#f0f0f0)
-
-#### 2.2 Build Core Components
-
-**Header Component** (`components/Header.tsx`)
-- Fixed navigation bar
-- Logo/branding
-- Navigation links with active state styling
-- Search icon (placeholder for search functionality)
-- Responsive design with mobile menu trigger
-
-**Navigation Component** (`components/Navigation.tsx`)
-- Navigation menu items
-- Active link highlighting
-- Dropdown support (if needed)
-
-**Mobile Menu Component** (`components/MobileMenu.tsx`)
-- Hamburger toggle button
-- Slide-out mobile navigation
-- Click-outside handler to close menu
-- Smooth animations
-
-**Footer Component** (`components/Footer.tsx`)
-- Logo section
-- Quick links
-- Social media icons (Instagram, Twitter, Facebook, LinkedIn, TikTok)
-- Contact email
-- Copyright notice with dynamic year
-
-**Preloader Component** (`components/Preloader.tsx`)
-- Loading animation
-- Fade out on page load
-- Custom CSS animations
-
-#### 2.3 Animation Setup
-- Install `framer-motion` for smooth animations
-- Create custom hooks for scroll animations
-- Replace AOS with Framer Motion `inView` detection
-- Implement fade-in animations on scroll
-
----
-
-### Phase 3: Page Implementation (Weeks 3-4)
-
-#### 3.1 Home Page (`app/page.tsx`)
-**Components:**
-- Hero section with featured image
-- Featured content blocks (About, Artworks, AFEProject, NFTs)
+### 1. **Home Page** (`index.html`)
+- Landing page with hero section
+- Featured content blocks linking to main sections:
+  - About
+  - Artworks
+  - AFEProject
+  - NFTs
 - Call-to-action section ("Get in Touch")
-- Featured artworks grid
-- Newsletter signup (optional enhancement)
+- Responsive navigation with mobile menu
+- Footer with social links
 
-**Features:**
-- Image optimization with Next.js `Image` component
-- Lazy loading for below-the-fold content
-- Responsive grid layout
+### 2. **About Page** (`about.html`)
+- Detailed artist biography
+- Background and artistic journey
+- Creative philosophy and approach
+- Impact and future vision
+- Professional timeline
 
-#### 3.2 About Page (`app/about/page.tsx`)
-**Components:**
-- Large profile image
-- Multi-paragraph biography with formatting
-- Skills/specialties section
-- Services offered
+### 3. **Artworks Page** (`projects.html`)
+- Gallery of artwork pieces with titles and mediums
+- Includes:
+  - Happiness Within (Graphite & Charcoal, 2020)
+  - Bobo Ajudua
+  - Discrepancy
+  - Peter
+  - Messi
+  - Dream Girl
+  - Black Future Without Oppression (BFWO)
+  - Lookman (Portrait)
+  - Video showcase (Smile Animation)
+- Image grid with responsive layout
 
-**Features:**
-- Rich text formatting (headings, bold, italics)
-- Responsive image sizing
+### 4. **AFEProject Page** (`afeproject.html`)
+- Art for Everyone initiative details
+- Community outreach programs
+- Orphanage and vulnerable children engagement
+- Project impact and statistics
+- Photo documentation of activities
 
-#### 3.3 Projects/Artworks Page (`app/projects/page.tsx`)
-**Components:**
-- Image grid gallery
-- Filter/category buttons (if applicable)
-- Image cards with title and medium info
-- Lightbox modal for full-size viewing
+### 5. **Commissions Page** (`commission.html`)
+- Commission service information
+- Pricing structure (if applicable)
+- Commission process and timeline
+- Types of commissions offered
+- Contact/inquiry information
 
-**Features:**
-- Dynamic image loading
-- Image optimization
-- Gallery filtering system
-- Magnific Popup replacement (custom modal or use `next-image-gallery`)
+### 6. **Publications Page** (`publications.html`)
+- Featured publications and press coverage
+- Lookman (Portrait/Interview)
+- TikTok/Social media features
+- Media appearances
 
-#### 3.4 AFEProject Page (`app/afeproject/page.tsx`)
-- Similar structure to projects page
-- Project showcase with descriptions
-- Impact/statistics section
+### 7. **NFTs Page** (`nfts.html`)
+- Digital art and NFT collection showcase
+- Blockchain/marketplace information
+- NFT descriptions and details
 
-#### 3.5 Commissions Page (`app/commission/page.tsx`)
-- Pricing information
-- Commission process explanation
-- Call-to-action for contact
-
-#### 3.6 Publications Page (`app/publications/page.tsx`)
-- List of publications
-- Links and dates
-- Featured publications
-
-#### 3.7 NFTs Page (`app/nfts/page.tsx`)
-- NFT showcase/gallery
-- Blockchain information
-- Links to marketplaces
-
-#### 3.8 Contact Page (`app/contact/page.tsx`)
-**Components:**
-- Contact form with validation
-- Contact information cards
-- Social media links
-- Embedded map (optional enhancement)
-
-**Features:**
-- Client-side form validation (React Hook Form)
-- Email submission via API route
-- Success/error message handling
-- Loading state management
+### 8. **Contact Page** (`contact.html`)
+- Contact form (Name, Email, Phone, Message)
+- Email validation and submission
+- Contact information card
+- Social media links:
+  - Instagram
+  - Twitter (X)
+  - Facebook
+  - LinkedIn
+  - TikTok
+- Direct email: tobiadebayoart@gmail.com
 
 ---
 
-### Phase 4: API & Functionality (Week 4)
+## Site Features & Interactions
 
-#### 4.1 Contact Form API (`app/api/contact/route.ts`)
-**Functionality:**
-- Accept POST requests from contact form
-- Validate form data (name, email, phone, message)
-- Send email using Nodemailer or SendGrid/Resend
-- Return success/error response
+### Navigation
+- **Fixed Header:** Stays visible when scrolling
+- **Responsive Menu:** Hamburger menu on mobile devices
+- **Active Page Indicator:** Shows current page in navigation
+- **Logo Link:** Returns to home page
 
-**Implementation:**
-```typescript
-// POST /api/contact
-// Body: { fullName, email, phone, message }
-// Response: { success: boolean, message: string }
-```
+### Visual Effects
+- **Scroll Animations:** AOS (Animate On Scroll) for fade-in effects
+- **Preloader:** Loading animation on page load
+- **Hover States:** Interactive buttons and links
+- **Image Gallery:** Responsive grid layouts
+- **Video Integration:** Embedded video showcase in Artworks
 
-#### 4.2 Email Service (`lib/email.ts`)
-- Email template for contact form
-- Error handling and logging
-- Support for transactional email services (Resend, SendGrid, Nodemailer)
+### Forms & Interaction
+- **Contact Form:** Email form with validation
+- **Search Modal:** Top search functionality
+- **Call-to-Action Buttons:** Links to key pages
 
----
-
-### Phase 5: Advanced Features & Optimization (Week 5)
-
-#### 5.1 Performance Optimization
-- Image optimization with Next.js `Image` component
-- Next.js built-in code splitting
-- Lazy loading for images and components
-- Metadata generation for SEO
-- Font optimization
-
-#### 5.2 SEO Implementation
-- Meta tags for each page (`generateMetadata()`)
-- Open Graph tags for social sharing
-- Structured data (JSON-LD) for artist bio
-- Dynamic sitemap generation
-- robots.txt configuration
-
-#### 5.3 Analytics & Monitoring
-- Google Analytics integration
-- Error tracking (Sentry)
-- Performance monitoring
-
-#### 5.4 Additional Features
-- Search functionality (if needed)
-- Newsletter subscription (Mailchimp integration)
-- Blog section (optional future enhancement)
-- Image gallery with categories/filters
-- Dark mode support (Tailwind theme)
+### Responsive Design
+- Mobile-first approach
+- Breakpoints for tablets and desktops
+- Hamburger menu navigation on mobile
+- Optimized image sizing for different screen sizes
 
 ---
 
-### Phase 6: Testing & Deployment (Week 6)
-
-#### 6.1 Testing
-- Unit tests for components (Jest + React Testing Library)
-- Integration tests for API routes
-- E2E tests for critical user flows (Playwright/Cypress)
-
-#### 6.2 Quality Assurance
-- Accessibility audit (WCAG compliance)
-- Mobile responsiveness testing
-- Cross-browser testing
-- Lighthouse performance audit
-
-#### 6.3 Deployment
-- Deploy to Vercel (native Next.js hosting)
-- Setup automatic deployments on push
-- Environment variable configuration
-- Database/CMS setup (if needed for dynamic content)
-
-#### 6.4 Post-Deployment
-- Monitor performance metrics
-- User feedback collection
-- Continuous improvements
-- SEO monitoring
-
----
-
-## Technology Stack
+## Current Technology Stack
 
 ### Frontend
-- **Framework:** Next.js 14+
-- **UI Library:** React 18+
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **Forms:** React Hook Form + Zod (validation)
-- **Image Gallery:** react-medium-image-zoom or react-image-lightbox
+- **HTML5** - Semantic markup
+- **CSS3** - Custom styles and grid system
+- **Bootstrap 5** - Responsive grid and utilities
+- **jQuery** - DOM manipulation and effects
+- **jQuery UI** - Slider components
 
-### Backend/Services
-- **API Routes:** Next.js API Routes
-- **Email:** Resend, SendGrid, or Nodemailer
-- **CMS:** (Optional) Contentful, Strapi, or Sanity for dynamic content
+### Libraries & Plugins
+- **Owl Carousel 2** - Image carousels/sliders
+- **AOS (Animate On Scroll)** - Scroll-triggered animations
+- **Font Awesome 6.4.2** - Icon library
+- **icomoon** - Custom icon fonts
+- **intl-tel-input** - International phone number formatting
 
-### Development Tools
-- **Package Manager:** npm or pnpm
-- **Linting:** ESLint
-- **Formatting:** Prettier
-- **Testing:** Jest, React Testing Library, Playwright
-- **Version Control:** Git
-
-### Hosting & Deployment
-- **Primary:** Vercel (optimized for Next.js)
-- **Alternative:** Netlify, AWS Amplify, or self-hosted
+### Utilities
+- **jsconfig.json** - JavaScript/alias configuration
 
 ---
 
-## Migration Strategy
+## File Structure
 
-### Step 1: Data & Content Extraction
-- Extract all text content from HTML files
-- Categorize artworks and metadata
-- Create content JSON files or database records
-
-### Step 2: Component-by-Component Migration
-- Build components in isolation
-- Test each component with sample data
-- Maintain feature parity with original site
-
-### Step 3: Gradual Rollout
-- Deploy to staging environment
-- Conduct thorough testing
-- Soft launch on subdomain (next.tobiadebayo.com)
-- Gradual traffic migration
-- Full cutover after validation
-
-### Step 4: Cleanup & Optimization
-- Remove old HTML files
-- Optimize assets
-- Final performance audit
-- Launch on main domain
-
----
-
-## Dependencies to Remove
-- Bootstrap (replace with Tailwind CSS)
-- jQuery (not needed with React)
-- jQuery UI
-- Owl Carousel (replace with custom React component or library)
-- Magnific Popup (replace with React modal/lightbox)
-- Slick Carousel (replace with Framer Motion or Swiper)
-
-## New Dependencies to Add
-- next
-- react
-- react-dom
-- tailwindcss
-- framer-motion
-- react-hook-form
-- zod
-- next-image-zoom (or similar)
-- swiper (optional, for carousels)
-
----
-
-## Estimated Timeline
-- **Week 1:** Project setup & architecture
-- **Week 2:** Core components & styling
-- **Weeks 3-4:** Page implementation
-- **Week 4:** API & backend functionality
-- **Week 5:** Advanced features & optimization
-- **Week 6:** Testing & deployment
-
-**Total:** 6 weeks for complete rewrite
+```
+tobiadebayo/
+├── index.html                  # Home page
+├── about.html                  # About artist
+├── projects.html               # Artworks gallery
+├── afeproject.html            # Art for Everyone project
+├── commission.html            # Commission services
+├── publications.html          # Publications/Press
+├── nfts.html                  # NFT collection
+├── contact.html               # Contact page
+├── style.css                  # Main stylesheet (with imports)
+├── css/
+│   ├── bootstrap.min.css      # Bootstrap framework
+│   ├── style-2.css            # Additional styles
+│   ├── aos.css                # Scroll animations
+│   ├── owl.carousel.min.css   # Carousel styles
+│   ├── owl.theme.default.min.css # Carousel theme
+│   ├── jquery-ui.css          # jQuery UI styles
+│   ├── font-awesome.min.css   # Icon styles
+│   └── default-assets/
+│       ├── hkgrotesk-fonts.css # Custom fonts
+│       ├── classy-nav.css     # Navigation styles
+├── js/
+│   ├── jquery.min.js          # jQuery library
+│   ├── bootstrap.min.js       # Bootstrap functionality
+│   ├── jquery-ui.js           # jQuery UI
+│   ├── owl.carousel.min.js    # Carousel functionality
+│   ├── aos.js                 # Scroll animation functionality
+│   ├── main.js                # Custom scripts
+│   ├── popper.min.js          # Popper utility library
+│   ├── mona.bundle.js         # Template bundle
+│   └── default-assets/
+│       └── active.js          # Active state management
+├── images/
+│   ├── logo.png               # Site logo
+│   ├── black-logo.png         # Dark logo variant
+│   ├── favicon.jpg            # Favicon
+│   ├── tobi.jpg               # Artist profile photo
+│   ├── (artwork images)       # Gallery images
+│   ├── (project images)       # AFEProject images
+│   └── (nft images)           # NFT showcase images
+├── fonts/
+│   └── icomoon/               # Custom icon fonts
+├── README.md                  # Project documentation
+├── CLEANUP_SUMMARY.md         # Cleanup history
+├── TASKS.md                   # Next.js migration plan
+└── jsconfig.json              # JavaScript configuration
+```
 
 ---
 
-## Key Improvements Over Current Version
-1. ✅ **Better Performance:** Automatic code splitting, image optimization, caching
-2. ✅ **Improved SEO:** Built-in meta tags, dynamic sitemaps, structured data
-3. ✅ **Modern DX:** TypeScript, component reusability, better tooling
-4. ✅ **Scalability:** Easier to add features like blog, e-commerce, etc.
-5. ✅ **Maintainability:** Cleaner code, better organization, less complexity
-6. ✅ **Mobile-First:** Better responsive design patterns
-7. ✅ **Accessibility:** Built-in accessibility features with modern React
-8. ✅ **Analytics:** Easier integration of tracking and monitoring
-9. ✅ **Security:** Built-in CSRF protection, secure API routes
-10. ✅ **Developer Experience:** Hot reload, better debugging, TypeScript support
+## Current Performance Metrics
+
+- **Total Pages:** 8 active
+- **Total CSS Files:** 8 active
+- **Total Images:** 19 optimized
+- **Load Dependencies:** 10+ libraries
+- **Performance Considerations:**
+  - Multiple CSS files loaded sequentially
+  - jQuery dependency for simple DOM operations
+  - Bootstrap bloat for minimal grid usage
+  - External CDN dependency for Font Awesome
 
 ---
 
-## Maintenance & Future Enhancements
-- Add blog section with markdown support
-- Integrate CMS for easier content management
-- Add image compression/optimization service
-- Implement advanced analytics
-- Add newsletter functionality
-- Social media feed integration
-- Commission management system
-- Admin dashboard for content management
+## Key Statistics
+
+| Metric | Count |
+|--------|-------|
+| Active Pages | 8 |
+| Artworks in Gallery | 8+ |
+| Social Media Links | 5 |
+| AFEProject Images | 3 |
+| Contact Form Fields | 4 |
+| Navigation Links | 8 |
 
 ---
 
-## Questions & Decisions Needed
-1. **Content Management:** Will content be hardcoded, in JSON, or use a CMS?
-2. **Email Service:** Which service for sending emails (Resend, SendGrid, Nodemailer)?
-3. **Comments/Feedback:** Enable user comments on artworks?
-4. **E-commerce:** Add shop functionality for prints/originals?
-5. **Blog:** Need a blog section?
-6. **Admin Panel:** Need admin dashboard for content management?
-7. **Database:** Need persistent data storage?
-8. **Authentication:** Need user accounts or admin login?
+## Development Notes
+
+### Recent Changes (November 30, 2025)
+- Removed 4 unused HTML pages (features, illustration, painting, portfolio)
+- Removed 3 unused CSS files (animate.css, magnific-popup.css, slick.css)
+- Deleted 15 unused images
+- Removed commented-out carousel code
+- Reduced codebase by ~2.3-3.2 MB
+- See [CLEANUP_SUMMARY.md](CLEANUP_SUMMARY.md) for detailed cleanup history
+
+### Known Limitations
+- jQuery dependency for basic functionality
+- Bootstrap overhead for minimal grid usage
+- Multiple CSS file imports (8 files)
+- No build optimization pipeline
+- Limited SEO capabilities (static HTML)
+- Manual mobile menu management
 
 ---
 
-## Resources & References
-- [Next.js Documentation](https://nextjs.org/docs)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [React Hook Form](https://react-hook-form.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [TypeScript React Guide](https://www.typescriptlang.org/docs/handbook/react.html)
+## Future Improvements
+
+See [TASKS.md](TASKS.md) for comprehensive Next.js migration plan including:
+- Modern React architecture
+- TypeScript for type safety
+- Tailwind CSS for styling
+- API routes for form handling
+- Image optimization
+- SEO improvements
+- Performance enhancements
 
 ---
 
-**Last Updated:** November 30, 2025  
-**Status:** Ready for implementation
+## How to Run Locally
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/peswes/tobiadebayo.git
+   cd tobiadebayo
+   ```
+
+2. **Open in Browser**
+   - Simply open `index.html` in a web browser
+   - No build process required (static HTML)
+
+3. **Development Server (Optional)**
+   ```bash
+   # Using Python
+   python -m http.server 8000
+   
+   # Or using Node.js
+   npx http-server
+   ```
+
+4. **Access**
+   - Navigate to `http://localhost:8000`
+
+---
+
+## Deployment
+
+**Current Hosting:** GitHub Pages (static site)  
+**Domain:** https://tobiadebayo.com  
+**DNS:** CNAME configured in repository
+
+**Deployment Process:**
+1. Push changes to `production` branch
+2. GitHub Pages automatically serves latest version
+3. No build step required
+
+---
+
+## Contact & Links
+
+**Email:** tobiadebayoart@gmail.com
+
+**Social Media:**
+- [Instagram](https://www.instagram.com/tobi_adebayo_)
+- [Twitter/X](https://x.com/tobi_adebayo_)
+- [Facebook](https://www.facebook.com/share/19VzXrAtHp/)
+- [LinkedIn](https://www.linkedin.com/in/tobi-adebayo-13b97b1aa)
+- [TikTok](https://www.tiktok.com/@tobiadebayoart)
+
+---
+
+## License
+
+© Tobi Adebayo Studios. All rights reserved.
+
+---
+
+## Repository Information
+
+- **Repository:** tobiadebayo
+- **Owner:** peswes
+- **Branch:** production
+- **Default Branch:** main
+- **Last Updated:** November 30, 2025
+
+For migration planning and task tracking, see [TASKS.md](TASKS.md).
