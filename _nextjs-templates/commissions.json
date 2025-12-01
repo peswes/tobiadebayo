@@ -1,0 +1,38 @@
+[
+  {
+    "id": "portrait",
+    "title": "Custom Portrait",
+    "description": "Handcrafted hyper-realistic pencil portraits. Includes consultation, reference handling, and a revision round.",
+    "category": "Portraiture",
+    "featured": true,
+    "price": "Custom",
+    "image": "/images/Drawing.jpg"
+  },
+  {
+    "id": "digital-illustration",
+    "title": "Digital Illustration",
+    "description": "Custom digital paintings and illustrations for brands, personal collections, or NFTs.",
+    "category": "Digital Art",
+    "featured": true,
+    "price": "Custom",
+    "image": "/images/Painting.jpg"
+  },
+  {
+    "id": "stamp-art",
+    "title": "Stamp Art & Experimental",
+    "description": "Exclusive art projects using stamping and mixed experimental techniques. Ideal for limited editions and special projects.",
+    "category": "Experimental",
+    "featured": false,
+    "price": "Custom",
+    "image": "/images/afepy2.jpg"
+  },
+  {
+    "id": "mural",
+    "title": "Mural & Wall Art",
+    "description": "Large-scale murals and site-specific artworks for public and private spaces. Includes logistics and installation guidance.",
+    "category": "Public Art",
+    "featured": false,
+    "price": "Custom",
+    "image": "/images/painting-large.jpg"
+  }
+]

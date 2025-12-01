@@ -1,0 +1,13 @@
+[
+  {
+    "id": "happiness-within-nft",
+    "title": "Happiness Within",
+    "description": "First NFT minted January 2025 — a tokenized edition of the physical work 'Happiness Within'.",
+    "image": "/images/tobinft.jpg",
+    "contractAddress": null,
+    "tokenId": null,
+    "price": "1.0 ETH",
+    "featured": true,
+    "link": "https://foundation.app/mint/eth/0x7D9F82C6dad07eaFdC6fd329785Ec325Eb8793a7/2"
+  }
+]
