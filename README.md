@@ -264,6 +264,38 @@ See [TASKS.md](TASKS.md) for comprehensive Next.js migration plan including:
 
 ---
 
+## Next.js Migration Plan
+
+### What you need
+- **Node:** >= 18 installed locally.
+- **Package manager:** `npm` or `pnpm` (your choice).
+- **Next app location:** continue work inside `Thelight/` — do NOT create another Next app at repository root.
+- **Decisions required:** whether to use **TypeScript** (recommended) and whether to adopt **Tailwind CSS** or convert existing CSS to CSS Modules.
+- **Backup:** keep the current HTML/CSS/JS files (`index.html`, `css/`, `js/`, `images/`) untouched until features are ported and verified.
+
+### High-level migration steps
+1. **Analyze & map:** inspect existing pages and map each HTML page to Next.js routes.
+2. **Create shared layout & components:** build `Header`, `Footer`, `Layout`, `Gallery`, `ContactForm`, and smaller UI components.
+3. **Move static assets:** copy `images/`, `fonts/`, and required assets into `Thelight/public/` and update references.
+4. **Migrate styles:** either integrate Tailwind or convert global styles to CSS Modules/global stylesheet inside the Next app.
+5. **Refactor JS into React:** convert `main.js` and other jQuery scripts into React components and hooks; remove jQuery where possible.
+6. **Integrate third-party libs:** add React-friendly packages for AOS and carousels or implement React equivalents.
+7. **Forms & API:** implement contact form handling via Next.js API routes or a serverless form provider; add validation and spam protection.
+8. **Optimize & test:** replace img tags with `next/image`, add metadata/SEO, run accessibility and Lighthouse checks.
+9. **Deploy:** use Vercel (recommended) or another platform; update DNS and environment settings.
+
+### Pages -> Routes mapping
+- `/` -> `index`
+- `/about` -> `about`
+- `/projects` -> `projects`
+- `/afeproject` -> `afeproject`
+- `/commission` -> `commission`
+- `/publications` -> `publications`
+- `/nfts` -> `nfts`
+- `/contact` -> `contact`
+
+---
+
 ## How to Run Locally
 
 1. **Clone Repository**
