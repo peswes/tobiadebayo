@@ -8,9 +8,6 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-  theme: {
-    extend: {
-      colors: {
         primary: 'var(--primary)',
         accent: 'var(--accent)',
         background: 'var(--background)',
@@ -20,6 +17,8 @@ const config: Config = {
         sans: ['var(--font-geist-sans)', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
       },
-    }
+    },
   },
+}
+
 export default config

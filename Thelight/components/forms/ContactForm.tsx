@@ -76,3 +76,6 @@ export default function ContactForm() {
 
       {status === "sent" && <p className="text-green-600 font-semibold text-center py-3 bg-green-50 dark:bg-green-900 rounded">✓ Message sent — thank you!</p>}
       {status === "error" && <p className="text-red-600 font-semibold text-center py-3 bg-red-50 dark:bg-red-900 rounded">✗ Failed to send. Try again later.</p>}
+    </form>
+  )
+}

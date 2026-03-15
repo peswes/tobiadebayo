@@ -1,0 +1,28 @@
+# Ignore all markdown files except README.md
+*.md
+!README.md
+
+# Node dependencies
+node_modules/
+.pnpm-debug.log*
+
+# Next.js
+.next/
+out/
+build/
+
+# Environment variables
+.env.local
+.env.*.local
+*.env
+*.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
