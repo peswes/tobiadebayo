@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -16,33 +17,55 @@ const processSteps = [
 
 export default function CommissionPage() {
   return (
-    <main className="bg-white font-sans text-[#232323]">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h1 className="mb-6 text-[48px] font-bold leading-tight">Commission</h1>
+    <main>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <h1 className="breadcrumb-title">Commission</h1>
+          <nav className="breadcrumb-nav">
+            <Link href="/">Home</Link> / <span>Commission</span>
+          </nav>
+        </div>
+      </section>
 
-        <section className="mb-12">
-          <p className="max-w-4xl text-[20px] leading-[1.5] text-[#666666]">
-            Let&apos;s create together. Tobi Adebayo Studios offers commissioned projects for individuals, brands,
-            and businesses.
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <p className="about-body" style={{ textAlign: "center" }}>
+            Let&apos;s create together. Tobi Adebayo Studios offers commissioned projects for individuals, brands, and businesses.
           </p>
-        </section>
 
-        <section className="mb-12 grid grid-cols-1 gap-[30px] md:grid-cols-2">
-          <Image src="/images/Drawing.jpg" alt="Drawing catalogue" width={900} height={500} className="h-[500px] w-full object-cover" />
-          <Image src="/images/Painting.jpg" alt="Painting catalogue" width={900} height={500} className="h-[500px] w-full object-cover" />
-        </section>
+          <div className="gallery-grid">
+            <article className="gallery-item">
+              <div style={{ position: "relative", height: "500px" }}>
+                <Image src="/images/ajudua.jpg" alt="Drawing catalogue style" fill className="gallery-image" sizes="(max-width: 991px) 100vw, 50vw" />
+                <div className="gallery-overlay">
+                  <h4>Drawing Catalogue</h4>
+                  <p>Hyper-realistic portraits</p>
+                </div>
+              </div>
+            </article>
+            <article className="gallery-item">
+              <div style={{ position: "relative", height: "500px" }}>
+                <Image src="/images/dreamgirl.jpg" alt="Painting catalogue style" fill className="gallery-image" sizes="(max-width: 991px) 100vw, 50vw" />
+                <div className="gallery-overlay">
+                  <h4>Painting Catalogue</h4>
+                  <p>Custom painted works</p>
+                </div>
+              </div>
+            </article>
+          </div>
 
-        <section>
-          <h2 className="mb-6 text-3xl font-bold">Process</h2>
-          <ol className="space-y-4 text-[20px] leading-[1.5] text-[#666666]">
+          <h2>Process</h2>
+          <ol className="section-gap-30" style={{ listStyle: "none", padding: 0 }}>
             {processSteps.map((step, index) => (
-              <li key={step} className="border border-[#232323] p-4">
-                <span className="font-bold text-[#232323]">Step {index + 1}:</span> {step}
+              <li key={step} className="content-card">
+                <p className="about-body" style={{ textAlign: "center" }}>
+                  <strong style={{ color: "#232323" }}>Step {index + 1}:</strong> {step}
+                </p>
               </li>
             ))}
           </ol>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   )
 }

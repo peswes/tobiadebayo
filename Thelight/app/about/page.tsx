@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -9,39 +10,40 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="bg-white font-sans text-[#232323]">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h1 className="mb-10 text-[48px] font-bold leading-tight">About me</h1>
+    <main>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <h1 className="breadcrumb-title">About me</h1>
+          <nav className="breadcrumb-nav">
+            <Link href="/">Home</Link> / <span>About</span>
+          </nav>
+        </div>
+      </section>
 
-        <div className="mb-10 flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div className="w-full md:w-[40%]">
-            <Image
-              src="/images/tobi.jpg"
-              alt="Tobi Adebayo"
-              width={800}
-              height={1000}
-              className="h-auto w-full"
-              priority
-            />
+      <section className="section-shell">
+        <div className="page-shell about-layout">
+          <div>
+            <Image src="/images/tobi.jpg" alt="Tobi Adebayo portrait" width={800} height={1100} className="h-auto w-full" priority />
           </div>
 
-          <div className="w-full md:w-[55%] space-y-6 text-[20px] leading-[1.5] text-[#666666]">
-            <p>
+          <div className="section-gap-30">
+            <h2 className="about-heading">About me</h2>
+            <p className="about-body">
               Tobi Adebayo (born Adebayo Oluwatobi James, 2000) is a multi-disciplinary artist and activist
               known for thought-provoking work that inspires unity, hope and faith.
             </p>
-            <p>
+            <p className="about-body">
               Born and raised in Ibadan, Nigeria, Tobi&apos;s creative journey started early and grew through years
               of study, practice, and personal experience. Today, his work spans charcoal, graphite, acrylic,
               digital art, and stamp art.
             </p>
-            <p>
+            <p className="about-body">
               Through his art and the Art for Everyone initiative, he uses creative expression as a tool for
               connection, confidence, and social impact in communities.
             </p>
           </div>
         </div>
-      </div>
+      </section>
     </main>
   )
 }

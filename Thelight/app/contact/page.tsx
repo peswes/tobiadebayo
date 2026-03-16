@@ -1,5 +1,7 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
+import ContactForm from "@/components/forms/ContactForm"
 
 export const metadata: Metadata = {
   title: "Contact | Tobi Adebayo",
@@ -8,74 +10,71 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="bg-white font-sans text-[#232323]">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h1 className="mb-10 text-[48px] font-bold leading-tight">Contact me</h1>
+    <main>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <h1 className="breadcrumb-title">Contact</h1>
+          <nav className="breadcrumb-nav">
+            <Link href="/">Home</Link> / <span>Contact me</span>
+          </nav>
+        </div>
+      </section>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
-            <Image
-              src="/images/tobi.jpg"
-              alt="Tobi Adebayo"
-              width={900}
-              height={900}
-              className="h-auto w-full"
-              priority
-            />
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <div className="contact-layout">
+            <div className="contact-image-wrap">
+              <Image src="/images/tobi.jpg" alt="Tobi Adebayo" width={900} height={1100} className="h-auto w-full" priority />
+            </div>
+
+            <div>
+              <h2>Contact Me</h2>
+              <p className="about-body" style={{ marginTop: "10px", marginBottom: "10px", textAlign: "center" }}>
+                I&apos;m here to listen. Share your thoughts, make enquiries, ask questions, or just say Hi.
+              </p>
+
+              <ContactForm />
+            </div>
           </div>
 
-          <div>
-            <h2 className="mb-4 text-3xl font-bold">Contact Me</h2>
-            <p className="mb-6 text-[20px] leading-[1.5] text-[#666666]">
-              I&apos;m here to listen. Share your thoughts, make enquiries, ask questions, or just say hi.
-            </p>
-
-            <form className="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="h-[50px] w-full border border-[#232323] px-5 text-base text-[#232323] outline-none"
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                className="h-[50px] w-full border border-[#232323] px-5 text-base text-[#232323] outline-none"
-              />
-              <input
-                type="tel"
-                placeholder="Phone"
-                className="h-[50px] w-full border border-[#232323] px-5 text-base text-[#232323] outline-none"
-              />
-              <textarea
-                placeholder="Message"
-                rows={6}
-                className="w-full border border-[#232323] p-5 text-base text-[#232323] outline-none"
-              />
-              <button
-                type="submit"
-                className="h-[50px] border border-[#232323] bg-[#232323] px-8 text-base font-semibold text-white"
-              >
-                Contact Me
-              </button>
-            </form>
+          <div className="info-card-grid">
+            <article className="info-card">
+              <h3>Email</h3>
+              <p className="about-body">
+                <a href="mailto:tobiadebayoart@gmail.com">tobiadebayoart@gmail.com</a>
+              </p>
+            </article>
+            <article className="info-card">
+              <h3>Social Media</h3>
+              <p className="about-body">
+                <a href="https://www.instagram.com/tobi_adebayo_" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                </a>{" "}
+                ·{" "}
+                <a href="https://x.com/tobi_adebayo_" target="_blank" rel="noopener noreferrer">
+                  X
+                </a>{" "}
+                ·{" "}
+                <a href="https://www.facebook.com/share/19VzXrAtHp/" target="_blank" rel="noopener noreferrer">
+                  Facebook
+                </a>{" "}
+                ·{" "}
+                <a href="https://www.linkedin.com/in/tobi-adebayo-13b97b1aa" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>{" "}
+                ·{" "}
+                <a href="https://www.tiktok.com/@tobiadebayoart" target="_blank" rel="noopener noreferrer">
+                  TikTok
+                </a>
+              </p>
+            </article>
+            <article className="info-card">
+              <h3>Location</h3>
+              <p className="about-body">Nigeria</p>
+            </article>
           </div>
         </div>
-
-        <div className="mt-16 grid grid-cols-1 gap-8 text-center md:grid-cols-3">
-          <article>
-            <h3 className="mb-2 text-2xl font-bold">Email</h3>
-            <p className="text-[20px] leading-[1.5] text-[#666666]">tobiadebayoart@gmail.com</p>
-          </article>
-          <article>
-            <h3 className="mb-2 text-2xl font-bold">Social Media</h3>
-            <p className="text-[20px] leading-[1.5] text-[#666666]">Instagram · X · Facebook · LinkedIn · TikTok</p>
-          </article>
-          <article>
-            <h3 className="mb-2 text-2xl font-bold">Location</h3>
-            <p className="text-[20px] leading-[1.5] text-[#666666]">Nigeria</p>
-          </article>
-        </div>
-      </div>
+      </section>
     </main>
   )
 }

@@ -4,72 +4,113 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="mt-16 bg-black dark:bg-zinc-900 text-white py-12 md:py-16 lg:py-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 mb-10">
-          {/* Brand */}
-          <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">Tobi Adebayo</h3>
-            <p className="text-sm sm:text-base md:text-lg text-gray-300">
-              Contemporary artist exploring identity, hope, and social impact through visual storytelling.
+    <footer className="bg-[#f9f9f9] max-w-full p-[50px_20px_50px_60px] md:p-[50px_20px_50px_60px] max-md:px-[10px] max-md:py-[70px_10px_10px_10px] max-md:flex-col max-md:gap-[50px]">
+      <div className="flex flex-row justify-center items-center gap-[30px] max-md:flex-col max-md:gap-[50px]">
+        {/* First Footer Section - Logo + Text + Copyright */}
+        <div className="w-full flex flex-col gap-[10px]">
+          <a href="/" className="flex items-center">
+            <img 
+              src="/black-logo.png" 
+              alt="Tobi Adebayo Logo"
+              className="w-[150px] h-[50px]"
+            />
+          </a>
+          <div className="text-[#666666]">
+            <p className="text-lg text-left max-md:text-center mb-0 text-[#666666] leading-[1.5]">
+              Thank you for visiting my website. I hope you found what you were looking for. If you have any questions or further inquiries, kindly reach out.
             </p>
           </div>
+          <div className="hidden md:block text-black">
+            <p className="text-base mb-0 text-black">
+              © Tobi Adebayo Studios, Copyright {currentYear}.
+            </p>
+          </div>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 lg:col-span-2">
-            <div>
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 text-white">Explore</h4>
-              <nav className="flex flex-col gap-2 text-sm sm:text-base md:text-lg">
-                <Link href="/" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Home
-                </Link>
-                <Link href="/about" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  About
-                </Link>
-                <Link href="/projects" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Projects
-                </Link>
-                <Link href="/publications" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Publications
-                </Link>
-              </nav>
-            </div>
-
-            <div>
-              <h4 className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 text-white">Connect</h4>
-              <nav className="flex flex-col gap-2 text-sm sm:text-base md:text-lg">
-                <Link href="/afeproject" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  AFE Project
-                </Link>
-                <Link href="/nfts" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  NFTs
-                </Link>
-                <Link href="/commission" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Commissions
-                </Link>
-                <Link href="/contact" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Contact
-                </Link>
-                <a href="https://www.instagram.com/tobi_adebayo_" target="_blank" rel="noopener noreferrer" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                  Instagram
+        {/* Second Footer Section - Quick Links + Learn More */}
+        <div className="w-full flex flex-row justify-center gap-[30px] max-md:flex-col max-md:gap-[20px]">
+          <div className="flex flex-col items-start max-md:items-center">
+            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
+              Quick Links
+            </h2>
+            <div className="flex flex-col gap-[5px] max-md:flex-row max-md:gap-[15px] max-md:justify-center">
+              {[
+                { href: '/projects', label: 'Artworks' },
+                { href: '/commission', label: 'Commission' },
+                { href: '/afeproject', label: 'AFEProject' },
+                { href: '/nfts', label: 'NFTs' }
+              ].map((item) => (
+                <a 
+                  key={item.href}
+                  href={item.href} 
+                  className="text-[#666666] no-underline text-lg transition-colors duration-500 hover:text-[#ee0101]"
+                >
+                  {item.label}
                 </a>
-              </nav>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-col items-start max-md:items-center">
+            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
+              Learn More
+            </h2>
+            <div className="flex flex-col gap-[5px] max-md:flex-row max-md:gap-[15px] max-md:justify-center">
+              {[
+                { href: '/about', label: 'About' },
+                { href: '/publications', label: 'Publications' },
+                { href: '/contact', label: 'Contact' }
+              ].map((item) => (
+                <a 
+                  key={item.href}
+                  href={item.href} 
+                  className="text-[#666666] no-underline text-lg transition-colors duration-500 hover:text-[#ee0101]"
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 md:pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-            <p className="text-gray-300 text-sm sm:text-base">
-              © {currentYear} Tobi Adebayo. All rights reserved.
+        {/* Fourth Footer Section - Connect + Social Icons */}
+        <div className="w-full flex flex-col gap-[20px] items-start max-md:items-center">
+          <div>
+            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
+              Connect With us
+            </h2>
+            <p className="text-lg text-[#666666] mb-0 flex items-center gap-[10px]">
+              <i className="fa fa-envelope text-[22px]"></i>
+              <a href="mailto:tobiadebayoart@gmail.com" className="text-[#666666] no-underline transition-colors duration-500 hover:text-[#ee0101]">
+                tobiadebayoart@gmail.com
+              </a>
             </p>
-            <div className="flex gap-4 text-sm sm:text-base">
-              <a href="#" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                Privacy
+          </div>
+
+          <div className="flex gap-[20px] text-2xl">
+            {[
+              { icon: 'icomoon icon-instagram', url: 'https://www.instagram.com/tobi_adebayo_' },
+              { icon: 'icomoon icon-twitter', url: 'https://x.com/tobi_adebayo_' },
+              { icon: 'icomoon icon-facebook', url: 'https://www.facebook.com/share/19VzXrAtHp/' },
+              { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/tobi-adebayo-13b97b1aa' },
+              { icon: 'fab fa-tiktok', url: 'https://www.tiktok.com/@tobiadebayoart' }
+            ].map((social, idx) => (
+              <a 
+                key={idx}
+                target="_blank" 
+                href={social.url} 
+                rel="noopener noreferrer" 
+                className="text-[#666666] no-underline transition-colors duration-500 hover:text-[#ee0101]"
+              >
+                <i className={social.icon}></i>
               </a>
-              <a href="#" className="text-gray-300 transition-colors hover:text-[#ee0101]">
-                Terms
-              </a>
-            </div>
+            ))}
+          </div>
+
+          <div className="md:hidden text-black">
+            <p className="text-base mb-0 text-black flex flex-col items-center justify-center">
+              © Tobi Adebayo Studios, Copyright {currentYear}.
+            </p>
           </div>
         </div>
       </div>

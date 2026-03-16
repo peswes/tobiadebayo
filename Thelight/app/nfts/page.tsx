@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -14,32 +15,42 @@ const nftItems = [
 
 export default function NFTsPage() {
   return (
-    <main className="bg-white font-sans text-[#232323]">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h1 className="mb-6 text-[48px] font-bold leading-tight">NFTs</h1>
-        <p className="mb-10 max-w-4xl text-[20px] leading-[1.5] text-[#666666]">
-          Exclusive NFT drops by Tobi Adebayo. Happiness Within reflects the relief we all need to find amidst
-          life&apos;s challenges.
-        </p>
-
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {nftItems.map((item) => (
-            <article key={item.title} className="border border-[#232323] p-4">
-              <a href={item.url} target="_blank" rel="noopener noreferrer">
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  width={600}
-                  height={500}
-                  className="h-[500px] w-full object-cover"
-                />
-              </a>
-              <h2 className="mt-4 text-2xl font-bold">{item.title}</h2>
-              <p className="text-[20px] leading-[1.5] text-[#666666]">Price: {item.price}</p>
-            </article>
-          ))}
+    <main>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <h1 className="breadcrumb-title">NFTs</h1>
+          <nav className="breadcrumb-nav">
+            <Link href="/">Home</Link> / <span>NFTs</span>
+          </nav>
         </div>
-      </div>
+      </section>
+
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <p className="about-body" style={{ textAlign: "center" }}>
+            Exclusive NFT drops by Tobi Adebayo. Happiness Within reflects the relief we all need to find amidst
+            life&apos;s challenges.
+          </p>
+
+          <div className="gallery-grid">
+            {nftItems.map((item) => (
+              <article key={item.title} className="content-card section-gap-30">
+                <a href={item.url} target="_blank" rel="noopener noreferrer">
+                  <div className="gallery-item">
+                    <div style={{ position: "relative", height: "500px" }}>
+                      <Image src={item.src} alt={item.title} fill className="gallery-image" sizes="(max-width: 991px) 100vw, 50vw" />
+                      <div className="gallery-overlay">
+                        <h4>{item.title}</h4>
+                        <p>Price: {item.price}</p>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

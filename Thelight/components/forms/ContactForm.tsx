@@ -43,95 +43,94 @@ export default function ContactForm() {
         setStatus('error')
         setTimeout(() => setStatus('idle'), 5000)
       }
-    } catch (err) {
+    } catch {
       setStatus('error')
       setTimeout(() => setStatus('idle'), 5000)
     }
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mx-auto space-y-6">
-      {/* Full Name */}
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Full Name <span className="text-red-600">*</span>
+    <form onSubmit={handleSubmit(onSubmit)} className="section-gap-30">
+      <div className="form-field">
+        <label htmlFor="fullName">
+          Full Name <span style={{ color: "#e20000" }}>*</span>
         </label>
         <input
+          id="fullName"
           {...register('fullName')}
           type="text"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded focus:outline-none focus:border-black dark:focus:border-white dark:bg-zinc-800 dark:text-white transition-colors"
+          className="w-full"
           placeholder="Your name"
         />
         {errors.fullName && (
-          <p className="text-red-600 text-sm mt-1">{errors.fullName.message}</p>
+          <p style={{ color: "#e20000", fontSize: "14px", marginTop: "6px" }}>{errors.fullName.message}</p>
         )}
       </div>
 
-      {/* Email */}
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Email <span className="text-red-600">*</span>
+      <div className="form-field">
+        <label htmlFor="email">
+          Email <span style={{ color: "#e20000" }}>*</span>
         </label>
         <input
+          id="email"
           {...register('email')}
           type="email"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded focus:outline-none focus:border-black dark:focus:border-white dark:bg-zinc-800 dark:text-white transition-colors"
+          className="w-full"
           placeholder="your@email.com"
         />
         {errors.email && (
-          <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+          <p style={{ color: "#e20000", fontSize: "14px", marginTop: "6px" }}>{errors.email.message}</p>
         )}
       </div>
 
-      {/* Phone */}
-      <div>
-        <label className="block text-sm font-semibold mb-2">Phone (Optional)</label>
+      <div className="form-field">
+        <label htmlFor="phone">Phone (Optional)</label>
         <input
+          id="phone"
           {...register('phone')}
           type="tel"
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded focus:outline-none focus:border-black dark:focus:border-white dark:bg-zinc-800 dark:text-white transition-colors"
+          className="w-full"
           placeholder="Your phone number"
         />
         {errors.phone && (
-          <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>
+          <p style={{ color: "#e20000", fontSize: "14px", marginTop: "6px" }}>{errors.phone.message}</p>
         )}
       </div>
 
-      {/* Message */}
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Message <span className="text-red-600">*</span>
+      <div className="form-field">
+        <label htmlFor="message">
+          Message <span style={{ color: "#e20000" }}>*</span>
         </label>
         <textarea
+          id="message"
           {...register('message')}
-          className="w-full border border-gray-300 dark:border-gray-600 p-3 rounded focus:outline-none focus:border-black dark:focus:border-white dark:bg-zinc-800 dark:text-white transition-colors h-32"
+          className="w-full"
           placeholder="Write your message here..."
         />
         {errors.message && (
-          <p className="text-red-600 text-sm mt-1">{errors.message.message}</p>
+          <p style={{ color: "#e20000", fontSize: "14px", marginTop: "6px" }}>{errors.message.message}</p>
         )}
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="w-full px-6 py-3 bg-black text-white font-semibold rounded-full hover:bg-gray-800 dark:hover:bg-gray-700 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="primary-button"
+        style={{ width: "100%" }}
       >
         {status === 'sending' ? 'Sending...' : 'Send Message'}
       </button>
 
-      {/* Status Messages */}
       {status === 'sent' && (
-        <div className="p-3 bg-green-50 dark:bg-green-900 rounded border border-green-200 dark:border-green-700">
-          <p className="text-green-600 dark:text-green-100 font-semibold text-center">
-            ✓ Message sent — thank you! I'll get back to you soon.
+        <div className="content-card" style={{ border: "1px solid #a6a6a6" }}>
+          <p style={{ color: "#232323", textAlign: "center", fontWeight: 600 }}>
+            ✓ Message sent — thank you! I&apos;ll get back to you soon.
           </p>
         </div>
       )}
       {status === 'error' && (
-        <div className="p-3 bg-red-50 dark:bg-red-900 rounded border border-red-200 dark:border-red-700">
-          <p className="text-red-600 dark:text-red-100 font-semibold text-center">
+        <div className="content-card" style={{ border: "1px solid #e20000" }}>
+          <p style={{ color: "#e20000", textAlign: "center", fontWeight: 600 }}>
             ✗ Failed to send. Please try again later.
           </p>
         </div>

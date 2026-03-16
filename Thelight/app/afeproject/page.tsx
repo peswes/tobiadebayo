@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Link from "next/link"
 import Image from "next/image"
 
 export const metadata: Metadata = {
@@ -7,51 +8,54 @@ export const metadata: Metadata = {
 }
 
 const galleryImages = [
-  { src: "/images/AFEProjects.jpg", alt: "AFE project activity" },
-  { src: "/images/afepy2.jpg", alt: "AFE workshop session" },
-  { src: "/images/afepy3.jpg", alt: "AFE community outreach" },
-  { src: "/images/afepy2.jpg", alt: "AFE collaborative project" },
+  { src: "/images/AFEProjects.jpg", alt: "AFE project activity", title: "AFE Project", subtitle: "Community Creativity" },
+  { src: "/images/afepy2.jpg", alt: "AFE workshop session", title: "Workshops", subtitle: "Learning and Expression" },
+  { src: "/images/afepy3.jpg", alt: "AFE community outreach", title: "Outreach", subtitle: "Social Impact" },
+  { src: "/images/afepy2.jpg", alt: "AFE collaborative project", title: "Collaboration", subtitle: "Inclusive Art Spaces" },
 ]
 
 export default function AFEProjectPage() {
   return (
-    <main className="bg-white font-sans text-[#232323]">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h1 className="mb-10 text-[48px] font-bold leading-tight">AFE Project</h1>
+    <main>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <h1 className="breadcrumb-title">AFEProject</h1>
+          <nav className="breadcrumb-nav">
+            <Link href="/">Home</Link> / <span>AFEProject</span>
+          </nav>
+        </div>
+      </section>
 
-        <section className="mb-12 space-y-6 text-[20px] leading-[1.5] text-[#666666]">
-          <p>
+      <section className="section-shell">
+        <div className="page-shell section-gap-30">
+          <p className="about-body">
             The Art for Everyone Project (A.F.E) is an NGO focused on dismantling socio-economic barriers to
             artistic expression. It creates inclusive opportunities for people to explore creativity and share
             their voice.
           </p>
-          <p>
+          <p className="about-body">
             Founded by Tobi Adebayo, A.F.E supports underserved communities through workshops, creative sessions,
             and practical tools for expression.
           </p>
-          <p>
+          <p className="about-body">
             More than an NGO, A.F.E is a movement that positions art as a tool for growth, connection, and social
             change.
           </p>
-        </section>
-
-        <section>
-          <h2 className="mb-8 text-3xl font-bold">Gallery</h2>
-          <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2">
+          <div className="gallery-grid">
             {galleryImages.map((image) => (
-              <div key={image.src + image.alt}>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={900}
-                  height={500}
-                  className="h-[500px] w-full object-cover"
-                />
+              <div key={image.src + image.alt} className="gallery-item">
+                <div style={{ position: "relative", height: "500px" }}>
+                  <Image src={image.src} alt={image.alt} fill className="gallery-image" sizes="(max-width: 991px) 100vw, 50vw" />
+                  <div className="gallery-overlay">
+                    <h4>{image.title}</h4>
+                    <p>{image.subtitle}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </main>
   )
 }
