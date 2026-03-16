@@ -1,116 +1,136 @@
+import Image from 'next/image'
 import Link from 'next/link'
+
+const QUICK_LINKS = [
+  { href: '/projects', label: 'Artworks' },
+  { href: '/commission', label: 'Commission' },
+  { href: '/afeproject', label: 'AFEProject' },
+  { href: '/nfts', label: 'NFTs' },
+]
+
+const LEARN_MORE_LINKS = [
+  { href: '/about', label: 'About' },
+  { href: '/publications', label: 'Publications' },
+  { href: '/contact', label: 'Contact' },
+]
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#f9f9f9] max-w-full p-[50px_20px_50px_60px] md:p-[50px_20px_50px_60px] max-md:px-[10px] max-md:py-[70px_10px_10px_10px] max-md:flex-col max-md:gap-[50px]">
-      <div className="flex flex-row justify-center items-center gap-[30px] max-md:flex-col max-md:gap-[50px]">
-        {/* First Footer Section - Logo + Text + Copyright */}
-        <div className="w-full flex flex-col gap-[10px]">
-          <a href="/" className="flex items-center">
-            <img 
-              src="/black-logo.png" 
+    <footer className="bg-[#f9f9f9] px-[10px] pb-[50px] pt-[70px] text-center md:pl-[60px] md:pr-[20px] md:pt-[50px] md:text-left">
+      <div className="flex flex-col gap-[50px] md:flex-row md:items-start md:justify-between md:gap-[30px]">
+        <div className="flex flex-1 flex-col items-center gap-[10px] md:items-start">
+          <Link href="/" className="inline-flex items-center">
+            <Image
+              src="/images/black-logo.png"
               alt="Tobi Adebayo Logo"
-              className="w-[150px] h-[50px]"
+              width={150}
+              height={50}
             />
-          </a>
-          <div className="text-[#666666]">
-            <p className="text-lg text-left max-md:text-center mb-0 text-[#666666] leading-[1.5]">
-              Thank you for visiting my website. I hope you found what you were looking for. If you have any questions or further inquiries, kindly reach out.
-            </p>
-          </div>
-          <div className="hidden md:block text-black">
-            <p className="text-base mb-0 text-black">
-              © Tobi Adebayo Studios, Copyright {currentYear}.
-            </p>
-          </div>
+          </Link>
+
+          <p className="text-[18px] text-[#666666]">
+            Thank you for visiting my website. I hope you found what you were
+            looking for. If you have any questions or further inquiries, kindly
+            reach out.
+          </p>
+
+          <p className="text-[18px] text-[#666666]">
+            © Tobi Adebayo Studios, Copyright {currentYear}
+          </p>
         </div>
 
-        {/* Second Footer Section - Quick Links + Learn More */}
-        <div className="w-full flex flex-row justify-center gap-[30px] max-md:flex-col max-md:gap-[20px]">
-          <div className="flex flex-col items-start max-md:items-center">
-            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
+        <div className="flex flex-1 flex-col items-center gap-[20px] md:flex-row md:items-start md:gap-[30px]">
+          <div className="flex flex-col items-center md:items-start">
+            <h2 className="mb-[10px] text-[22px] font-bold text-[#232323]">
               Quick Links
             </h2>
-            <div className="flex flex-col gap-[5px] max-md:flex-row max-md:gap-[15px] max-md:justify-center">
-              {[
-                { href: '/projects', label: 'Artworks' },
-                { href: '/commission', label: 'Commission' },
-                { href: '/afeproject', label: 'AFEProject' },
-                { href: '/nfts', label: 'NFTs' }
-              ].map((item) => (
-                <a 
+            <div className="flex flex-col gap-[8px]">
+              {QUICK_LINKS.map((item) => (
+                <Link
                   key={item.href}
-                  href={item.href} 
-                  className="text-[#666666] no-underline text-lg transition-colors duration-500 hover:text-[#ee0101]"
+                  href={item.href}
+                  className="text-[18px] text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col items-start max-md:items-center">
-            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
+          <div className="flex flex-col items-center md:items-start">
+            <h2 className="mb-[10px] text-[22px] font-bold text-[#232323]">
               Learn More
             </h2>
-            <div className="flex flex-col gap-[5px] max-md:flex-row max-md:gap-[15px] max-md:justify-center">
-              {[
-                { href: '/about', label: 'About' },
-                { href: '/publications', label: 'Publications' },
-                { href: '/contact', label: 'Contact' }
-              ].map((item) => (
-                <a 
+            <div className="flex flex-col gap-[8px]">
+              {LEARN_MORE_LINKS.map((item) => (
+                <Link
                   key={item.href}
-                  href={item.href} 
-                  className="text-[#666666] no-underline text-lg transition-colors duration-500 hover:text-[#ee0101]"
+                  href={item.href}
+                  className="text-[18px] text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Fourth Footer Section - Connect + Social Icons */}
-        <div className="w-full flex flex-col gap-[20px] items-start max-md:items-center">
-          <div>
-            <h2 className="text-2xl font-bold text-[#232323] mb-[10px] text-left max-md:text-center">
-              Connect With us
-            </h2>
-            <p className="text-lg text-[#666666] mb-0 flex items-center gap-[10px]">
-              <i className="fa fa-envelope text-[22px]"></i>
-              <a href="mailto:tobiadebayoart@gmail.com" className="text-[#666666] no-underline transition-colors duration-500 hover:text-[#ee0101]">
-                tobiadebayoart@gmail.com
-              </a>
-            </p>
-          </div>
+        <div className="flex flex-1 flex-col items-center gap-[20px] md:items-start">
+          <h2 className="text-[22px] font-bold text-[#232323]">Connect With us</h2>
 
-          <div className="flex gap-[20px] text-2xl">
-            {[
-              { icon: 'icomoon icon-instagram', url: 'https://www.instagram.com/tobi_adebayo_' },
-              { icon: 'icomoon icon-twitter', url: 'https://x.com/tobi_adebayo_' },
-              { icon: 'icomoon icon-facebook', url: 'https://www.facebook.com/share/19VzXrAtHp/' },
-              { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/tobi-adebayo-13b97b1aa' },
-              { icon: 'fab fa-tiktok', url: 'https://www.tiktok.com/@tobiadebayoart' }
-            ].map((social, idx) => (
-              <a 
-                key={idx}
-                target="_blank" 
-                href={social.url} 
-                rel="noopener noreferrer" 
-                className="text-[#666666] no-underline transition-colors duration-500 hover:text-[#ee0101]"
-              >
-                <i className={social.icon}></i>
-              </a>
-            ))}
-          </div>
+          <p className="flex items-center gap-[10px] text-[18px] text-[#666666]">
+            <i className="fa fa-envelope text-[22px]" />
+            <a
+              href="mailto:tobiadebayoart@gmail.com"
+              className="text-[18px] text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              tobiadebayoart@gmail.com
+            </a>
+          </p>
 
-          <div className="md:hidden text-black">
-            <p className="text-base mb-0 text-black flex flex-col items-center justify-center">
-              © Tobi Adebayo Studios, Copyright {currentYear}.
-            </p>
+          <div className="flex items-center gap-[20px] text-[24px]">
+            <a
+              href="https://www.instagram.com/tobi_adebayo_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              <i className="icomoon icon-instagram" />
+            </a>
+            <a
+              href="https://x.com/tobi_adebayo_"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              <i className="icomoon icon-twitter" />
+            </a>
+            <a
+              href="https://www.facebook.com/share/19VzXrAtHp/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              <i className="icomoon icon-facebook" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/tobi-adebayo-13b97b1aa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              <i className="fab fa-linkedin" />
+            </a>
+            <a
+              href="https://www.tiktok.com/@tobiadebayoart"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#666666] transition-colors duration-300 hover:text-[#ee0101]"
+            >
+              <i className="fab fa-tiktok" />
+            </a>
           </div>
         </div>
       </div>
