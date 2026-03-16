@@ -268,7 +268,19 @@ ul {
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  -webkit-animation: preloaderFadeOut 1s 5s forwards;
+  animation: preloaderFadeOut 1s 5s forwards; }
+
+@-webkit-keyframes preloaderFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden; } }
+
+@keyframes preloaderFadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden; } }
 
 .wrapper {
   padding-left: 1em;
