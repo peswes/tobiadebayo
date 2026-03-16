@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Image from "next/image"
-import ProjectsCarousel from "@/components/ProjectsCarousel"
+import ProjectGallery from "@/components/ProjectGallery"
 
 export const metadata: Metadata = {
   title: "Artworks | Tobi Adebayo",
@@ -21,45 +21,40 @@ const artworks = [
 
 export default function Projects() {
   return (
-    <div className="min-h-screen py-12 md:py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h1 className="text-4xl md:text-5xl font-bold mb-12">Artworks Gallery</h1>
+    <div className="min-h-screen bg-white dark:bg-black">
+      {/* Breadcrumb */}
+      <section className="py-8 md:py-12 px-4 md:px-6 border-b border-gray-200 dark:border-gray-800">
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-black dark:text-white">Artworks</h1>
+          <nav className="flex items-center gap-2 text-sm md:text-base text-gray-600 dark:text-gray-400">
+            <a href="/" className="hover:text-black dark:hover:text-white transition-colors">Home</a>
+            <span className="text-gray-400">/</span>
+            <a href="/projects" className="text-black dark:text-white font-medium">Artworks</a>
+          </nav>
+        </div>
+      </section>
 
-        {/* Carousel Section */}
-        <section className="mb-16" data-aos="fade">
-          <h2 className="text-2xl font-semibold mb-6">Featured Works</h2>
-          <ProjectsCarousel images={artworks.map((art) => ({ src: art.src, alt: art.title }))} />
-        </section>
+      {/* Gallery Section */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 md:px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-black dark:text-white">Gallery</h2>
+          <ProjectGallery images={artworks} title="" />
+        </div>
+      </section>
 
-        {/* Grid Gallery */}
-        <section data-aos="fade">
-          <h2 className="text-2xl font-semibold mb-6">Complete Collection</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {artworks.map((art, i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-                <Image src={art.src} alt={art.title} width={400} height={300} className="w-full h-48 object-cover" />
-                <div className="p-4 bg-gray-50 dark:bg-zinc-800">
-                  <h3 className="font-semibold text-lg">{art.title}</h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">{art.medium}</p>
-                  {art.year && <p className="text-xs text-gray-500 dark:text-gray-400">{art.year}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Video Showcase */}
-        <section className="mt-16" data-aos="fade">
-          <h2 className="text-2xl font-semibold mb-6">Video Showcase</h2>
-          <div className="rounded-lg overflow-hidden">
-            <video width={800} height={600} controls className="w-full">
-              <source src="/videos/smile.mp4" type="video/mp4" />
+      {/* Video Showcase */}
+      <section className="py-12 md:py-16 lg:py-20 px-4 md:px-6 bg-gray-50 dark:bg-zinc-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8 text-black dark:text-white">Video Showcase</h2>
+          <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+            <video controls className="w-full h-full object-cover">
+              <source src="/images/smile.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </div>
-          <p className="text-center text-gray-600 dark:text-gray-300 mt-2">Smile Animation</p>
-        </section>
-      </div>
+          <p className="text-center text-gray-600 dark:text-gray-300 mt-4 font-medium">Smile Animation</p>
+        </div>
+      </section>
     </div>
   )
 }

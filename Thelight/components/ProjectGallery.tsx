@@ -27,26 +27,26 @@ export default function ProjectGallery({ images, title }: Props) {
 
   return (
     <>
-      {title && <h2 className="text-3xl font-bold mb-8">{title}</h2>}
+      {title && <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8">{title}</h2>}
       
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
         {images.map((img, i) => (
           <div
             key={i}
             onClick={() => setSelectedIndex(i)}
             className="group cursor-pointer overflow-hidden rounded-lg"
           >
-            <div className="relative w-full aspect-square">
+            <div className="relative w-full aspect-video">
               <Image
                 src={img.src}
                 alt={img.alt || 'project'}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
             <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
-              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm">View</span>
+              <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">View</span>
             </div>
           </div>
         ))}
