@@ -16,7 +16,7 @@ type Props = {
 export default function ProjectsCarousel({ images, title, autoplay = false }: Props) {
   return (
     <section className="w-full">
-      {title && <h2 className="text-3xl font-bold mb-6">{title}</h2>}
+      {title && <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-black dark:text-white">{title}</h2>}
       
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -33,7 +33,7 @@ export default function ProjectsCarousel({ images, title, autoplay = false }: Pr
       >
         {images.map((img, i) => (
           <SwiperSlide key={i}>
-            <div className="relative w-full h-80 rounded-lg overflow-hidden">
+            <div className="relative w-full aspect-[4/3] md:aspect-video lg:aspect-[4/3] rounded-lg overflow-hidden">
               <Image
                 src={img.src}
                 alt={img.alt || 'project'}
@@ -43,7 +43,7 @@ export default function ProjectsCarousel({ images, title, autoplay = false }: Pr
               />
               {img.title && (
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
-                  <p className="text-white font-semibold">{img.title}</p>
+                  <p className="text-white font-semibold text-sm sm:text-base md:text-lg">{img.title}</p>
                 </div>
               )}
             </div>

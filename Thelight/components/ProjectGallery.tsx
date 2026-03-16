@@ -34,7 +34,7 @@ export default function ProjectGallery({ images, title }: Props) {
           <div
             key={i}
             onClick={() => setSelectedIndex(i)}
-            className="group cursor-pointer overflow-hidden rounded-lg"
+            className="group relative cursor-pointer overflow-hidden rounded-lg"
           >
             <div className="relative w-full aspect-video">
               <Image
@@ -45,7 +45,7 @@ export default function ProjectGallery({ images, title }: Props) {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
             </div>
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+            <div className="pointer-events-none absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
               <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity text-sm font-medium">View</span>
             </div>
           </div>
@@ -56,7 +56,7 @@ export default function ProjectGallery({ images, title }: Props) {
       <Modal isOpen={selectedIndex !== null} onClose={() => setSelectedIndex(null)}>
         {selectedImage && (
           <div className="w-full">
-            <div className="relative w-full bg-black" style={{ aspectRatio: '4/3' }}>
+            <div className="relative w-full aspect-[4/3] bg-black">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt || 'project'}
