@@ -16,6 +16,8 @@ const NAV_ITEMS = [
 ]
 
 export default function Header() {
+  // Fixed horizontal header, not sidebar
+
   const pathname = usePathname()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 

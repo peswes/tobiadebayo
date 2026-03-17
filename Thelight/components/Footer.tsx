@@ -32,7 +32,7 @@ export default function Footer() {
         </div>
 
         {/* Second singlefoot - Quick Links + Learn More */}
-        <div className="singlefoot second-singlefoot w-full md:w-auto flex flex-col md:flex-row items-center md:items-start gap-[20px] md:gap-[30px] text-center md:text-left">
+        <div className="singlefoot second-singlefoot w-full md:w-auto flex flex-row md:flex-row items-center md:items-start gap-[20px] md:gap-[30px] text-center md:text-left">
           <div className="second-footer-column inn-1 flex flex-col items-center md:items-start">
             <h2 className="text-[22px] font-bold text-[#232323] mb-[10px] text-center md:text-left">
               Quick Links
