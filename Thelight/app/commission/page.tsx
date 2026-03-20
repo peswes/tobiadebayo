@@ -1,6 +1,6 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
+import Breadcrumb from "@/components/Breadcrumb"
 
 export const metadata: Metadata = {
   title: "Commissions | Tobi Adebayo",
@@ -21,9 +21,7 @@ export default function CommissionPage() {
       <section className="section-shell">
         <div className="page-shell section-gap-30">
           <h1 className="breadcrumb-title">Commission</h1>
-          <nav className="breadcrumb-nav">
-            <Link href="/">Home</Link> / <span>Commission</span>
-          </nav>
+          <Breadcrumb currentPage="Commission" />
         </div>
       </section>
 

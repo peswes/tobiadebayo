@@ -1,6 +1,6 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
+import Breadcrumb from "@/components/Breadcrumb"
 
 export const metadata: Metadata = {
   title: "Publications | Tobi Adebayo",
@@ -27,28 +27,26 @@ const publications = [
 export default function PublicationsPage() {
   return (
     <main>
-      <section className="section-shell">
+      <section className="section-shell pb-[70px]">
         <div className="page-shell section-gap-30">
           <h1 className="breadcrumb-title">Publications</h1>
-          <nav className="breadcrumb-nav">
-            <Link href="/">Home</Link> / <span>Publications</span>
-          </nav>
+          <Breadcrumb currentPage="Publications" />
         </div>
       </section>
 
-      <section className="section-shell">
+      <section className="section-shell pb-[70px]">
         <div className="page-shell section-gap-30">
           <p className="about-body" style={{ textAlign: "center" }}>
             Selected press and publications.
           </p>
 
-          <div className="gallery-grid">
+          <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-3 md:gap-[30px]">
             {publications.map((item) => (
               <article key={item.title} className="content-card section-gap-30">
                 <div className="gallery-item">
-                  <div style={{ position: "relative", height: "500px" }}>
-                    <Image src={item.image} alt={item.title} fill className="gallery-image" sizes="(max-width: 991px) 100vw, 50vw" />
-                    <div className="gallery-overlay">
+                  <div className="relative h-[320px] w-full overflow-hidden rounded-[20px] md:h-[360px]">
+                    <Image src={item.image} alt={item.title} fill className="gallery-image rounded-[20px]" sizes="(max-width: 639px) 100vw, 33vw" />
+                    <div className="gallery-overlay rounded-b-[20px]">
                       <h4>{item.title}</h4>
                       <p>{item.year}</p>
                     </div>

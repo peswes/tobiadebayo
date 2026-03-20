@@ -1,7 +1,8 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
+import Breadcrumb from "@/components/Breadcrumb"
 import ContactForm from "@/components/forms/ContactForm"
+import SocialIcons, { TOBI_SOCIAL_LINKS } from "@/components/SocialIcons"
 
 export const metadata: Metadata = {
   title: "Contact | Tobi Adebayo",
@@ -14,64 +15,62 @@ export default function ContactPage() {
       <section className="section-shell">
         <div className="page-shell section-gap-30">
           <h1 className="breadcrumb-title">Contact</h1>
-          <nav className="breadcrumb-nav">
-            <Link href="/">Home</Link> / <span>Contact me</span>
-          </nav>
+          <Breadcrumb currentPage="Contact me" />
         </div>
       </section>
 
-      <section className="section-shell">
+      <section className="section-shell pb-[70px]">
         <div className="page-shell section-gap-30">
-          <div className="contact-layout">
-            <div className="contact-image-wrap">
-              <Image src="/images/tobi.jpg" alt="Tobi Adebayo" width={900} height={1100} className="h-auto w-full" priority />
+          <div className="flex flex-wrap items-start justify-between gap-y-[30px]">
+            <div className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
+              <div className="casting-form-thumbnail mb-[80px] overflow-hidden rounded-[20px]">
+                <Image
+                  src="/images/tobi.jpg"
+                  alt="Tobi Adebayo"
+                  width={900}
+                  height={1100}
+                  className="h-auto w-full rounded-[20px]"
+                  priority
+                />
+              </div>
             </div>
 
-            <div>
-              <h2>Contact Me</h2>
-              <p className="about-body" style={{ marginTop: "10px", marginBottom: "10px", textAlign: "center" }}>
-                I&apos;m here to listen. Share your thoughts, make enquiries, ask questions, or just say Hi.
-              </p>
+            <div className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
+              <div className="mona-contact-form mb-[80px]">
+                <div className="contact-heading mb-[20px]">
+                  <h2 className="text-left text-[48px] max-[1199px]:text-[30px] max-[991px]:text-[36px] max-[767px]:text-[24px]">
+                    Contact Me
+                  </h2>
+                  <p className="mt-[10px] text-left text-[16px] text-[#666666]">
+                    I&apos;m here to listen. Share your thoughts, make enquiries ask questions or just say Hi -
+                    I&apos;m looking forward to hearing from you!
+                  </p>
+                </div>
 
-              <ContactForm />
+                <ContactForm />
+              </div>
             </div>
           </div>
 
-          <div className="info-card-grid">
-            <article className="info-card">
-              <h3>Email</h3>
-              <p className="about-body">
-                <a href="mailto:tobiadebayoart@gmail.com">tobiadebayoart@gmail.com</a>
-              </p>
-            </article>
-            <article className="info-card">
-              <h3>Social Media</h3>
-              <p className="about-body">
-                <a href="https://www.instagram.com/tobi_adebayo_" target="_blank" rel="noopener noreferrer">
-                  Instagram
-                </a>{" "}
-                ·{" "}
-                <a href="https://x.com/tobi_adebayo_" target="_blank" rel="noopener noreferrer">
-                  X
-                </a>{" "}
-                ·{" "}
-                <a href="https://www.facebook.com/share/19VzXrAtHp/" target="_blank" rel="noopener noreferrer">
-                  Facebook
-                </a>{" "}
-                ·{" "}
-                <a href="https://www.linkedin.com/in/tobi-adebayo-13b97b1aa" target="_blank" rel="noopener noreferrer">
-                  LinkedIn
-                </a>{" "}
-                ·{" "}
-                <a href="https://www.tiktok.com/@tobiadebayoart" target="_blank" rel="noopener noreferrer">
-                  TikTok
+          <div className="flex flex-wrap items-start">
+            <article className="single-contact-card mb-[80px] w-full min-[992px]:w-1/3">
+              <h2>Email</h2>
+              <h6>
+                <a
+                  href="mailto:tobiadebayoart@gmail.com"
+                  className="text-[#333333] transition-colors duration-500 hover:text-[#ee0101]"
+                >
+                  tobiadebayoart@gmail.com
                 </a>
-              </p>
+              </h6>
             </article>
-            <article className="info-card">
-              <h3>Location</h3>
-              <p className="about-body">Nigeria</p>
-            </article>
+
+            <article className="single-contact-card mb-[80px] w-full min-[992px]:w-1/3">
+              <h2>Social Media</h2>
+                <SocialIcons items={TOBI_SOCIAL_LINKS} containerClassName="flex-wrap justify-center gap-[20px]" />
+              </article>
+
+            <div className="hidden min-[992px]:block min-[992px]:w-1/3" aria-hidden="true" />
           </div>
         </div>
       </section>

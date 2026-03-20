@@ -1,6 +1,6 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import Image from "next/image"
+import Breadcrumb from "@/components/Breadcrumb"
 
 export const metadata: Metadata = {
   title: "About Tobi Adebayo | Artist & Activist",
@@ -14,16 +14,21 @@ export default function AboutPage() {
       <section className="section-shell">
         <div className="page-shell section-gap-30">
           <h1 className="breadcrumb-title">About me</h1>
-          <nav className="breadcrumb-nav">
-            <Link href="/">Home</Link> / <span>About</span>
-          </nav>
+          <Breadcrumb currentPage="About" />
         </div>
       </section>
 
       <section className="section-shell">
         <div className="page-shell about-layout">
           <div>
-            <Image src="/images/tobi.jpg" alt="Tobi Adebayo portrait" width={800} height={1100} className="h-auto w-full" priority />
+            <Image
+              src="/images/tobi.jpg"
+              alt="Tobi Adebayo portrait"
+              width={800}
+              height={1100}
+              className="h-auto w-full rounded-[20px]"
+              priority
+            />
           </div>
 
           <div className="section-gap-30">

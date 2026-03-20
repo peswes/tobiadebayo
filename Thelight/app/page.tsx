@@ -18,15 +18,6 @@ export default function Home() {
 
   return (
     <main>
-      <section className="section-shell">
-        <div className="page-shell section-gap-30">
-          <h1 className="breadcrumb-title">Tobi Adebayo</h1>
-          <p style={{ textAlign: "center", fontSize: "20px" }}>
-            Artist. Activist. Innovator. Creating thought-provoking works that inspire unity, hope, and faith through
-            art and social impact.
-          </p>
-        </div>
-      </section>
 
       <section className="section-shell">
         <div className="page-shell">
@@ -34,9 +25,17 @@ export default function Home() {
             {cards.map((card) => (
               <Link key={card.href} href={card.href} className="home-card">
                 <div className="home-card-media">
-                  <Image src={card.src} alt={card.alt} fill className="home-card-image" sizes="(max-width: 575px) 92vw, 500px" />
+                  <Image
+                    src={card.src}
+                    alt={card.alt}
+                    fill
+                    className="home-card-image"
+                    sizes="(max-width: 575px) 90vw, 500px"
+                  />
+                  <div className="home-card-overlay">
+                    <h2 className="home-card-title">{card.title}</h2>
+                  </div>
                 </div>
-                <h2 className="home-card-title">{card.title}</h2>
               </Link>
             ))}
           </div>
