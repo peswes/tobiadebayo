@@ -69,22 +69,18 @@ export default function Header() {
                 aria-expanded={isMenuOpen}
                 aria-controls="mobile-menu-drawer"
                 onClick={() => setIsMenuOpen((prev) => !prev)}
-                className="relative flex h-[32px] w-[40px] items-center justify-center min-[992px]:hidden"
+                className={`relative z-[1200] flex h-[40px] w-[40px] items-center justify-center rounded-[3px] border border-[#f9f9f9] bg-transparent transition-opacity duration-200 min-[992px]:hidden ${
+                  isMenuOpen ? 'pointer-events-none opacity-0' : 'pointer-events-auto opacity-100'
+                }`}
               >
                 <span
-                  className={`absolute h-[3px] w-[28px] bg-[#f9f9f9] transition-all duration-300 ${
-                    isMenuOpen ? 'translate-y-0 rotate-45' : '-translate-y-[8px]'
-                  }`}
+                  className="absolute block h-[2px] w-[22px] -translate-y-[7px] bg-[#f9f9f9]"
                 />
                 <span
-                  className={`absolute h-[3px] w-[28px] bg-[#f9f9f9] transition-all duration-300 ${
-                    isMenuOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
+                  className="absolute block h-[2px] w-[22px] bg-[#f9f9f9]"
                 />
                 <span
-                  className={`absolute h-[3px] w-[28px] bg-[#f9f9f9] transition-all duration-300 ${
-                    isMenuOpen ? 'translate-y-0 -rotate-45' : 'translate-y-[8px]'
-                  }`}
+                  className="absolute block h-[2px] w-[22px] translate-y-[7px] bg-[#f9f9f9]"
                 />
               </button>
             </nav>
@@ -97,17 +93,20 @@ export default function Header() {
       <nav
         id="mobile-menu-drawer"
         aria-label="Mobile navigation"
-        className={`fixed top-0 z-[1000] h-full w-[300px] overflow-y-scroll bg-[#000000] shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-[left] duration-500 min-[992px]:hidden ${
-          isMenuOpen ? 'left-0' : 'left-[-310px]'
+        className={`fixed left-0 top-0 z-[1000] h-full w-[88vw] max-w-[300px] overflow-y-scroll bg-[#000000] shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-transform duration-500 min-[992px]:hidden ${
+          isMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'
         }`}
       >
         <button
           type="button"
           aria-label="Close navigation menu"
           onClick={() => setIsMenuOpen(false)}
-          className="absolute right-[20px] top-[20px] flex h-[28px] w-[28px] items-center justify-center text-[22px] leading-none text-[#f9f9f9]"
+          className="absolute right-[14px] top-[14px] z-[1100] flex h-[40px] w-[40px] items-center justify-center rounded-[3px] border border-[#f9f9f9] bg-transparent"
         >
-          ×
+          <span className="relative block h-[22px] w-[22px]" aria-hidden="true">
+            <span className="absolute left-0 top-1/2 block h-[2px] w-[22px] -translate-y-1/2 rotate-45 bg-[#f9f9f9]" />
+            <span className="absolute left-0 top-1/2 block h-[2px] w-[22px] -translate-y-1/2 -rotate-45 bg-[#f9f9f9]" />
+          </span>
         </button>
 
         <ul className="m-0 list-none p-0 pt-[70px]">

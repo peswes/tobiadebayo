@@ -1,6 +1,7 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
+import type { TouchEvent as ReactTouchEvent } from "react"
 import { createPortal } from "react-dom"
 import Image from "next/image"
 
@@ -18,8 +19,11 @@ type ArtworksMediaGalleryProps = {
 export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
   const itemCount = items.length
+  const isLightboxOpen = activeIndex !== null
+  const touchStartX = useRef<number | null>(null)
+  const touchStartY = useRef<number | null>(null)
 
-  const activeItem = activeIndex !== null ? items[activeIndex] : null
+  const activeItem = isLightboxOpen ? items[activeIndex] : null
 
   const openLightbox = (index: number) => {
     setActiveIndex(index)
@@ -45,8 +49,34 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
     setActiveIndex(null)
   }, [])
 
+  const onLightboxTouchStart = (event: ReactTouchEvent<HTMLDivElement>) => {
+    const touch = event.changedTouches[0]
+    touchStartX.current = touch.clientX
+    touchStartY.current = touch.clientY
+  }
+
+  const onLightboxTouchEnd = (event: ReactTouchEvent<HTMLDivElement>) => {
+    if (touchStartX.current === null || touchStartY.current === null) return
+
+    const touch = event.changedTouches[0]
+    const deltaX = touch.clientX - touchStartX.current
+    const deltaY = touch.clientY - touchStartY.current
+    const swipeThreshold = 40
+
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX < 0) {
+        goToNext()
+      } else {
+        goToPrevious()
+      }
+    }
+
+    touchStartX.current = null
+    touchStartY.current = null
+  }
+
   useEffect(() => {
-    if (activeIndex === null) return
+    if (!isLightboxOpen) return
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") closeLightbox()
@@ -56,30 +86,30 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
 
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [activeIndex, closeLightbox, goToNext, goToPrevious])
+  }, [isLightboxOpen, closeLightbox, goToNext, goToPrevious])
 
   useEffect(() => {
+    if (!isLightboxOpen) return
     const originalOverflow = document.body.style.overflow
-
-    if (activeIndex !== null) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = originalOverflow
-    }
+    document.body.style.overflow = "hidden"
 
     return () => {
       document.body.style.overflow = originalOverflow
     }
-  }, [activeIndex])
+  }, [isLightboxOpen])
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-3 md:gap-[30px]">
+      <div className="gallery-grid">
         {items.map((item, index) => (
           <button
             key={`${item.src}-${index}`}
             type="button"
-            onClick={() => openLightbox(index)}
+            onClick={(event) => {
+              event.preventDefault()
+              event.stopPropagation()
+              openLightbox(index)
+            }}
             className="gallery-item relative block w-full cursor-pointer appearance-none overflow-hidden rounded-[20px] border-0 bg-transparent p-0 text-left focus:outline-none"
             aria-label={`Open ${item.title}`}
             aria-haspopup="dialog"
@@ -101,26 +131,24 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
                   loop
                   playsInline
                   preload="metadata"
-                  className="h-full w-full rounded-[20px] object-cover"
+                  className="h-full w-full rounded-[20px] object-cover pointer-events-none"
                 />
               )}
-              <div className="gallery-overlay rounded-b-[20px]">
-                <h4>{item.title}</h4>
-                <p>{item.medium}</p>
-              </div>
             </div>
+            <h4 className="gallery-item-title">{item.title}</h4>
+            <p className="gallery-item-medium">{item.medium}</p>
           </button>
         ))}
       </div>
 
-      {typeof window !== "undefined" &&
+      {typeof document !== "undefined" &&
         activeItem &&
         createPortal(
           <div
             role="dialog"
             aria-modal="true"
             aria-label={`${activeItem.title} lightbox`}
-            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 p-4"
+            className="artworks-lightbox-overlay"
             onClick={(event) => {
               if (event.target === event.currentTarget) closeLightbox()
             }}
@@ -128,10 +156,10 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
             <button
               type="button"
               onClick={closeLightbox}
-              className="absolute right-4 top-4 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20"
+              className="artworks-lightbox-close"
               aria-label="Close lightbox"
             >
-              Close
+              Close ×
             </button>
 
             {itemCount > 1 && (
@@ -141,10 +169,10 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
                   event.stopPropagation()
                   goToPrevious()
                 }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+                className="artworks-lightbox-nav artworks-lightbox-nav-prev"
                 aria-label="Previous item"
               >
-                Prev
+                ‹
               </button>
             )}
 
@@ -155,25 +183,27 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
                   event.stopPropagation()
                   goToNext()
                 }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/10 px-4 py-2 text-white hover:bg-white/20"
+                className="artworks-lightbox-nav artworks-lightbox-nav-next"
                 aria-label="Next item"
               >
-                Next
+                ›
               </button>
             )}
 
             <div
-              className="flex max-h-[85vh] w-full max-w-6xl flex-col items-center justify-center gap-4"
+              className="artworks-lightbox-content"
               onClick={(event) => event.stopPropagation()}
+              onTouchStart={onLightboxTouchStart}
+              onTouchEnd={onLightboxTouchEnd}
             >
-              <div className="relative h-[70vh] w-full">
+              <div className="artworks-lightbox-media">
                 {activeItem.type === "image" ? (
                   <Image
                     src={activeItem.src}
                     alt={activeItem.title}
                     fill
                     sizes="100vw"
-                    className="object-contain"
+                    className="artworks-lightbox-image"
                     priority
                   />
                 ) : (
@@ -184,14 +214,14 @@ export default function ArtworksMediaGallery({ items }: ArtworksMediaGalleryProp
                     autoPlay
                     playsInline
                     preload="auto"
-                    className="h-full w-full object-contain"
+                    className="artworks-lightbox-video"
                   />
                 )}
               </div>
-              <div className="text-center text-white">
-                <p className="text-lg font-semibold">{activeItem.title}</p>
-                <p className="text-sm text-white/80">{activeItem.medium}</p>
-                <p className="mt-1 text-xs text-white/70">
+              <div className="artworks-lightbox-caption">
+                <p className="artworks-lightbox-title">{activeItem.title}</p>
+                <p className="artworks-lightbox-medium">{activeItem.medium}</p>
+                <p className="artworks-lightbox-count">
                   {(activeIndex ?? 0) + 1} / {items.length}
                 </p>
               </div>

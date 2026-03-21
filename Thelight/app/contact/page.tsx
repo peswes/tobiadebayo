@@ -23,6 +23,7 @@ export default function ContactPage() {
         <div className="page-shell section-gap-30">
           <div className="flex flex-wrap items-start justify-between gap-y-[30px]">
             <div className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
+              <div className="desktop-sticky-left">
               <div className="casting-form-thumbnail mb-[80px] overflow-hidden rounded-[20px]">
                 <Image
                   src="/images/tobi.jpg"
@@ -32,6 +33,7 @@ export default function ContactPage() {
                   className="h-auto w-full rounded-[20px]"
                   priority
                 />
+              </div>
               </div>
             </div>
 
