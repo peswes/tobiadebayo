@@ -4,8 +4,15 @@
 
 **Tobi Adebayo** is a multi-disciplinary artist and activist renowned for thought-provoking works that inspire unity, hope, and faith. This website serves as his professional portfolio and online presence.
 
-**Current Tech Stack:** HTML5, CSS3, Bootstrap 5, jQuery, Owl Carousel, AOS  
-**Future Migration:** Next.js 14+ with React, TypeScript, and Tailwind CSS (see [TASKS.md](TASKS.md))
+**Current Tech Stack:** HTML5, CSS3, Bootstrap 5, jQuery, Owl Carousel, AOS (Legacy Portfolio) / Next.js 15, React 19, TypeScript, Tailwind CSS (Modern Migration)
+
+---
+
+## 🛡️ Security Status
+> [!IMPORTANT]
+> **REMEDIATED**: This repository underwent a security audit and remediation on April 22, 2026, to neutralize an RCE-related infection. Malicious shadow-dependencies (`baseline-browser-mapping`) and suspicious package versions were purged. 
+> 
+> **System Integrity**: Always ensure your local `node_modules` are clean by running `rm -rf node_modules` and re-installing from a fresh state.
 
 ---
 
