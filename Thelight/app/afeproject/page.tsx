@@ -15,7 +15,7 @@ const afeSections = [
   },
   {
     text: "A.F.E, founded by Tobi Adebayo, a multi-disciplinary artist, entrepreneur and activist, he envisions a world where art transcends inequality, encouraging a community that thrive on collaboration, empathy and shared creativity. Through initiatives such as free community workshops (spanning painting, drawing, sculpture, digital art and more), art supplies for underserved groups and a platform for all, by then amplifying their underrepresented voices, the NGO ensures that art becomes a tool for connection and empowerment.",
-    image: { src: "/images/afepy2.jpg", alt: "AFE collaborative session" },
+    image: { src: "/images/AFEProjects.jpg", alt: "AFE collaborative session" },
   },
   {
     text: "A.F.E operated as a collective force, partnering with local artists, educational institutions and other NGOs to expand its reach, by hosting special events in schools, communities and marginalized neighborhoods, the organization turns everyday experience into canvases for self-expression. It’s online platforms also democratized visibility, proving that everyone can give expression to their ideas, visions, feels and thoughts, even where resources are scarce, while also showcasing artworks from emerging creators worldwide.",

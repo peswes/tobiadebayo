@@ -36,13 +36,13 @@ export default function NFTsPage() {
             !
           </p>
 
-          <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-3 md:gap-[30px]">
+          <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-2 max-[991px]:max-w-[600px] max-[991px]:mx-auto md:gap-[30px]">
             {nftItems.map((item) => (
               <article key={item.title} className="content-card section-gap-30">
                 <a href={item.url} target="_blank" rel="noopener noreferrer">
                   <div className="gallery-item">
                     <div className="relative h-[320px] w-full overflow-hidden rounded-[20px] md:h-[360px]">
-                      <Image src={item.src} alt={item.title} fill className="gallery-image rounded-[20px]" sizes="(max-width: 639px) 100vw, 33vw" />
+                      <Image src={item.src} alt={item.title} fill className="gallery-image rounded-[20px]" sizes="(max-width: 639px) 100vw, 50vw" />
                       <div className="gallery-overlay rounded-b-[20px]">
                         <h4>{item.title}</h4>
                         <p>Price: {item.price}</p>
