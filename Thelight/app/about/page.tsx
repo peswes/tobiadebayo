@@ -34,7 +34,7 @@ export default function AboutPage() {
             </div>
 
             <div className="section-gap-30">
-              <h2 className="about-heading">About me</h2>
+              <h2 className="sr-only">About Tobi Adebayo</h2>
               <p className="about-body">
                 Tobi Adebayo (born Adebayo Oluwatobi James, 2000) is a multi-disciplinary artist and activist
                 renowned for his intriguing and thought-provoking works that inspire Unity, Hope and Faith (UHF).

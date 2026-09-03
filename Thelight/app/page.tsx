@@ -18,11 +18,11 @@ export default function Home() {
 
   return (
     <main>
-
       <section className="section-shell">
         <div className="page-shell">
+          <h1 className="sr-only">Welcome to Tobi Adebayo&apos;s Portfolio</h1>
           <div className="home-grid">
-            {cards.map((card) => (
+            {cards.map((card, index) => (
               <Link key={card.href} href={card.href} className="home-card">
                 <div className="home-card-media">
                   <Image
@@ -30,7 +30,9 @@ export default function Home() {
                     alt={card.alt}
                     fill
                     className="home-card-image"
-                    sizes="(max-width: 575px) 90vw, 500px"
+                    sizes="(max-width: 575px) 90vw, (max-width: 991px) 45vw, 540px"
+                    priority={index < 2}
+                    quality={index === 0 ? 90 : 75}
                   />
                   <div className="home-card-overlay">
                     <h2 className="home-card-title">{card.title}</h2>

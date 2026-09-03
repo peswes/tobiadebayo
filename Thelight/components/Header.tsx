@@ -48,7 +48,7 @@ export default function Header() {
                         <li key={item.href} className="list-none">
                           <Link
                             href={item.href}
-                            className={`block h-[35px] px-[12px] text-[18px] leading-[34px] no-underline transition-colors hover:no-underline min-[992px]:max-[1199px]:px-[10px] min-[992px]:max-[1199px]:text-[14px] ${
+                            className={`flex h-[44px] items-center px-[12px] text-[18px] leading-[1] no-underline transition-colors hover:no-underline min-[992px]:max-[1199px]:px-[10px] min-[992px]:max-[1199px]:text-[14px] ${
                               isActive
                                 ? 'text-[#ee0101]'
                                 : 'text-[#f9f9f9] hover:text-[#ee0101]'
@@ -115,7 +115,7 @@ export default function Header() {
               <Link
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`block h-[38px] border-b border-[rgba(255,255,255,0.5)] bg-[#000000] px-[10px] text-[14px] leading-[38px] transition-colors ${
+                className={`flex h-[44px] items-center border-b border-[rgba(255,255,255,0.5)] bg-[#000000] px-[16px] text-[16px] transition-colors ${
                   pathname === item.href ? 'text-[#ee0101]' : 'text-[#f9f9f9] hover:text-[#ee0101]'
                 }`}
               >
