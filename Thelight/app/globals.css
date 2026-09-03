@@ -675,7 +675,7 @@ img {
 }
 
 .afe-container {
-  width: min(80%, 100%);
+  width: min(95%, 100%);
   margin: 70px auto 0;
   display: grid;
   gap: 40px;

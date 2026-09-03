@@ -75,7 +75,7 @@ export default function Footer() {
                 strokeWidth="2"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="h-[30px] w-[30px]"
+                className="h-[44px] w-[44px] shrink-0 p-[10px]"
                 aria-hidden="true"
               >
                 <path d="M4 6h16v12H4z" />

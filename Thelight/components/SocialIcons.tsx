@@ -24,8 +24,8 @@ export const TOBI_SOCIAL_LINKS: SocialIconItem[] = [
 ]
 
 const DEFAULT_LINK_CLASS =
-  "inline-flex h-[30px] w-[30px] items-center justify-center text-[#666666] transition-colors duration-500 hover:text-[#ee0101] no-underline"
-const DEFAULT_ICON_CLASS = "h-[22px] w-[22px]"
+  "inline-flex h-[44px] w-[44px] items-center justify-center rounded-md text-[#666666] transition-colors duration-500 hover:text-[#ee0101] no-underline"
+const DEFAULT_ICON_CLASS = "h-[24px] w-[24px]"
 
 function cx(...classes: Array<string | undefined>) {
   return classes.filter(Boolean).join(" ")
