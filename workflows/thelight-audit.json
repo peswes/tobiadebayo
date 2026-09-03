@@ -1,0 +1,11 @@
+{
+  "name": "thelight-audit",
+  "description": "Comprehensive audit of existing Thelight Next.js project",
+  "phases": [
+    { "title": "Check Build", "detail": "Run npm build to verify project compiles" },
+    { "title": "Verify Pages", "detail": "Check all 8 routes exist" },
+    { "title": "Audit Assets", "detail": "Verify images and fonts copied" },
+    { "title": "Check Components", "detail": "Review key components" },
+    { "title": "Check API", "detail": "Verify contact form API" }
+  ]
+}
