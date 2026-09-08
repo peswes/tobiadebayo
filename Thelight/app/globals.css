@@ -198,7 +198,7 @@ img {
 .home-card {
   display: block;
   width: 100%;
-  max-width: 540px;
+  max-width: 405px;
   margin: 0 auto;
   border-radius: 20px;
   text-decoration: none;
@@ -734,11 +734,12 @@ img {
   }
 
   .about-sticky-column {
+    position: -webkit-sticky;
     position: sticky;
-    top: 140px;
+    top: 100px;
     align-self: start;
     height: fit-content;
-    max-height: calc(100vh - 160px);
+    max-height: calc(100vh - 120px);
   }
 
   .about-sticky-media-card {
