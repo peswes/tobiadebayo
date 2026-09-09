@@ -58,7 +58,7 @@ export default function AFEProjectPage() {
                     alt={section.image.alt}
                     width={1200}
                     height={900}
-                    className="afe-image"
+                    className="afe-image aspect-[4/3] object-cover rounded-[24px] w-full h-full"
                     sizes="(max-width: 991px) 100vw, 40vw"
                   />
                 </div>

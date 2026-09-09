@@ -1,6 +1,7 @@
 import { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
+import { AnimatedSection, AnimatedStaggerGroup, AnimatedStaggerItem } from "@/components/AnimatedSection"
 
 export const metadata: Metadata = {
   title: "Tobi Adebayo | Artist & Activist",
@@ -21,30 +22,32 @@ export default function Home() {
       <section className="section-shell">
         <div className="page-shell">
           <h1 className="sr-only">Welcome to Tobi Adebayo&apos;s Portfolio</h1>
-          <div className="home-grid">
+          <AnimatedStaggerGroup className="home-grid">
             {cards.map((card, index) => (
-              <Link key={card.href} href={card.href} className="home-card">
-                <div className="home-card-media">
-                  <Image
-                    src={card.src}
-                    alt={card.alt}
-                    fill
-                    className="home-card-image"
-                    sizes="(max-width: 575px) 90vw, (max-width: 991px) 45vw, 540px"
-                    priority={index < 2}
-                    quality={index === 0 ? 90 : 75}
-                  />
-                  <div className="home-card-overlay">
-                    <h2 className="home-card-title">{card.title}</h2>
+              <AnimatedStaggerItem key={card.href}>
+                <Link href={card.href} className="home-card">
+                  <div className="home-card-media">
+                    <Image
+                      src={card.src}
+                      alt={card.alt}
+                      fill
+                      className="home-card-image"
+                      sizes="(max-width: 575px) 90vw, (max-width: 991px) 45vw, 540px"
+                      priority={index < 2}
+                      quality={index === 0 ? 90 : 75}
+                    />
+                    <div className="home-card-overlay">
+                      <h2 className="home-card-title">{card.title}</h2>
+                    </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+              </AnimatedStaggerItem>
             ))}
-          </div>
+          </AnimatedStaggerGroup>
         </div>
       </section>
 
-      <section className="cta-section">
+      <AnimatedSection className="cta-section">
         <div className="page-shell section-gap-30" style={{ textAlign: "center" }}>
           <h2 className="about-heading">GET IN TOUCH</h2>
           <p style={{ fontSize: "20px" }}>
@@ -57,7 +60,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
     </main>
   )
 }

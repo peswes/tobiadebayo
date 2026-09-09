@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 :root {
   --c-charcoal: #232323;
   --c-body: #666666;
@@ -12,79 +9,81 @@
   --c-hover: #e20000;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-body {
-  margin: 0;
-  background: var(--c-white);
-  color: var(--c-charcoal);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-weight: 400;
-  line-height: 1.5;
-  overflow-x: hidden;
-}
+  body {
+    margin: 0;
+    background: var(--c-white);
+    color: var(--c-charcoal);
+    font-family: var(--font-body), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: clip;
+  }
 
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  color: var(--c-charcoal);
-  font-family: var(--font-geist-sans), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-weight: 600;
-  line-height: 1.4;
-  text-align: center;
-  letter-spacing: -0.01em;
-}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+    color: var(--c-charcoal);
+    font-family: var(--font-heading), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: -0.01em;
+  }
 
-p {
-  margin: 0;
-  color: var(--c-body);
-  font-weight: 400;
-  line-height: 1.5;
-}
+  p {
+    margin: 0;
+    color: var(--c-body);
+    font-weight: 400;
+    line-height: 1.5;
+  }
 
-a {
-  color: var(--c-black);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
+  a {
+    color: var(--c-black);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
-a:hover,
-a:focus {
-  color: var(--c-hover);
-}
+  a:hover,
+  a:focus {
+    color: var(--c-hover);
+  }
 
-a,
-button,
-.content-card,
-.gallery-item,
-.home-card,
-.home-card-image {
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    color 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease;
-}
+  a,
+  button,
+  .content-card,
+  .gallery-item,
+  .home-card,
+  .home-card-image {
+    transition:
+      transform 0.35s ease,
+      box-shadow 0.35s ease,
+      color 0.25s ease,
+      background-color 0.25s ease,
+      border-color 0.25s ease;
+  }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 .page-shell {
@@ -198,7 +197,7 @@ img {
 .home-card {
   display: block;
   width: 100%;
-  max-width: 405px;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: 20px;
   text-decoration: none;
@@ -207,7 +206,7 @@ img {
 .home-card-media {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 20px;
   background: #111111;
@@ -245,6 +244,7 @@ img {
 
 .home-card:hover .home-card-image {
   filter: brightness(1.08);
+  transform: scale(1.05);
 }
 
 .gallery-item:hover {
@@ -631,6 +631,12 @@ img {
 
 .required-mark {
   color: var(--c-hover);
+}
+
+.bg-dots {
+  background-color: var(--c-white);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 2px, transparent 2px);
+  background-size: 20px 20px;
 }
 
 .form-notice {

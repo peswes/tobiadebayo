@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import SocialIcons, { TOBI_SOCIAL_LINKS } from '@/components/SocialIcons'
+import { AnimatedSection } from '@/components/AnimatedSection'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -9,7 +10,7 @@ export default function Footer() {
     <footer className="mt-[80px]">
       <div className="footer max-w-screen flex flex-col min-[1024px]:flex-row justify-start min-[1024px]:justify-center items-center min-[1024px]:items-start px-[16px] min-[480px]:px-[24px] py-[60px] min-[1024px]:px-[32px] min-[1280px]:px-[40px] min-[1536px]:pl-[60px] min-[1536px]:pr-[120px] min-[1024px]:py-[60px] bg-[#f9f9f9] gap-[28px] min-[1024px]:gap-[24px] min-[1280px]:gap-[36px]">
         {/* First singlefoot - Logo + Text + Copyright */}
-        <div className="singlefoot first-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-[300px] min-[1280px]:w-[430px] flex-none min-w-0 flex flex-col items-center min-[1024px]:items-start gap-[10px] text-center min-[1024px]:text-left">
+        <AnimatedSection className="singlefoot first-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-[300px] min-[1280px]:w-[430px] flex-none min-w-0 flex flex-col items-center min-[1024px]:items-start gap-[10px] text-center min-[1024px]:text-left">
           <div className="first-footer flex flex-col gap-[10px] items-center min-[1024px]:items-start">
             <Link href="/" className="flex justify-center min-[1024px]:justify-start">
               <Image
@@ -30,12 +31,12 @@ export default function Footer() {
               </p>
             </div>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* Second singlefoot - Quick Links + Learn More */}
-        <div className="singlefoot second-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-auto flex-none min-w-0 flex flex-col min-[640px]:flex-row items-center min-[1024px]:items-start justify-center min-[1024px]:justify-start gap-[28px] min-[1024px]:gap-[40px] text-center min-[1024px]:text-left">
+        <AnimatedSection delay={0.2} className="singlefoot second-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-auto flex-none min-w-0 flex flex-col min-[640px]:flex-row items-center min-[1024px]:items-start justify-center min-[1024px]:justify-start gap-[28px] min-[1024px]:gap-[40px] text-center min-[1024px]:text-left">
           <div className="second-footer-column inn-1 flex w-full min-[640px]:w-[150px] flex-col justify-start items-center min-[1024px]:items-start text-center min-[1024px]:text-left">
-            <h2 className="m-0 mb-[10px] w-full text-[22px] font-bold leading-[1.2] text-[#232323] text-center min-[1024px]:text-right">
+            <h2 className="m-0 mb-[10px] w-full text-[22px] font-bold leading-[1.2] text-[#232323] text-center min-[1024px]:text-left">
               Quick Links
             </h2>
             <ul className="flex w-full flex-col gap-[5px] items-center min-[1024px]:items-start list-none p-0 m-0">
@@ -47,7 +48,7 @@ export default function Footer() {
           </div>
 
           <div className="second-footer-column inn-2 flex w-full min-[640px]:w-[150px] flex-col justify-start items-center min-[1024px]:items-start text-center min-[1024px]:text-left">
-            <h2 className="m-0 mb-[10px] w-full text-[22px] font-bold leading-[1.2] text-[#232323] text-center min-[1024px]:text-right">
+            <h2 className="m-0 mb-[10px] w-full text-[22px] font-bold leading-[1.2] text-[#232323] text-center min-[1024px]:text-left">
               Learn More
             </h2>
             <ul className="flex w-full flex-col gap-[5px] items-center min-[1024px]:items-start list-none p-0 m-0">
@@ -56,10 +57,10 @@ export default function Footer() {
               <li className="w-full text-center min-[1024px]:text-left"><a href="/contact" className="block w-full text-center min-[1024px]:text-left text-[18px] text-[#666666] transition-colors duration-500 hover:text-[#ee0101] no-underline">Contact</a></li>
             </ul>
           </div>
-        </div>
+        </AnimatedSection>
 
         {/* Fourth singlefoot - Connect + Social Icons */}
-        <div className="singlefoot fourth-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-[240px] min-[1280px]:w-[300px] flex-none min-w-0 flex flex-col items-center min-[1024px]:items-start gap-[20px] text-center min-[1024px]:text-left">
+        <AnimatedSection delay={0.4} className="singlefoot fourth-singlefoot self-center min-[1024px]:self-start w-full min-[1024px]:w-[240px] min-[1280px]:w-[300px] flex-none min-w-0 flex flex-col items-center min-[1024px]:items-start gap-[20px] text-center min-[1024px]:text-left">
           <div className="fourth-footer flex flex-col gap-[20px] items-center min-[1024px]:items-start">
             <div className="conny w-full">
               <h2 className="text-[22px] font-bold text-[#232323] text-center min-[1024px]:text-left">
@@ -89,7 +90,7 @@ export default function Footer() {
             <SocialIcons items={TOBI_SOCIAL_LINKS} containerClassName="justify-center min-[1024px]:justify-start gap-[12px]" />
           </div>
 
-        </div>
+        </AnimatedSection>
       </div>
     </footer>
   )

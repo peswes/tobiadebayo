@@ -3,6 +3,7 @@ import Image from "next/image"
 import Breadcrumb from "@/components/Breadcrumb"
 import ContactForm from "@/components/forms/ContactForm"
 import SocialIcons, { TOBI_SOCIAL_LINKS } from "@/components/SocialIcons"
+import { AnimatedSection } from "@/components/AnimatedSection"
 
 export const metadata: Metadata = {
   title: "Contact | Tobi Adebayo",
@@ -22,9 +23,9 @@ export default function ContactPage() {
       <section className="section-shell pb-[70px]">
         <div className="page-shell section-gap-30">
           <div className="flex flex-wrap items-start justify-between gap-y-[30px]">
-            <div className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
-              <div className="desktop-sticky-left max-w-[75%] mx-auto">
-              <div className="casting-form-thumbnail mb-[80px] overflow-hidden rounded-[20px]">
+            <AnimatedSection xOffset={-50} className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
+              <div className="desktop-sticky-left w-full">
+              <div className="casting-form-thumbnail mb-[40px] overflow-hidden rounded-[20px] max-w-[75%] mx-auto">
                 <Image
                   src="/images/tobi.jpg"
                   alt="Tobi Adebayo"
@@ -34,11 +35,35 @@ export default function ContactPage() {
                   priority
                 />
               </div>
-              </div>
-            </div>
 
-            <div className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
-              <div className="mona-contact-form mb-[80px]">
+              <div className="flex flex-row justify-between items-start w-full mt-8 gap-[10px]">
+                <div className="single-contact-card">
+                  <h2 className="text-[16px] min-[1200px]:text-[18px] font-bold mb-2 whitespace-nowrap text-left">Email</h2>
+                  <h6 className="text-[14px] min-[1200px]:text-[16px]">
+                    <a
+                      href="mailto:tobiadebayoart@gmail.com"
+                      className="text-[#333333] transition-colors duration-500 hover:text-[#ee0101] whitespace-nowrap"
+                    >
+                      tobiadebayoart@gmail.com
+                    </a>
+                  </h6>
+                </div>
+
+                <div className="single-contact-card">
+                  <h2 className="text-[16px] min-[1200px]:text-[18px] font-bold mb-2 whitespace-nowrap text-left">Social Media</h2>
+                  <SocialIcons 
+                    items={TOBI_SOCIAL_LINKS} 
+                    containerClassName="flex-nowrap justify-start gap-[8px]"
+                    linkClassName="inline-flex h-[32px] w-[32px] items-center justify-center rounded-md text-[#666666] transition-colors duration-500 hover:text-[#ee0101] no-underline"
+                    iconClassName="h-[18px] w-[18px]"
+                  />
+                </div>
+              </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection xOffset={50} delay={0.2} className="w-full min-[768px]:w-[48%] min-[1200px]:w-[41.6667%]">
+              <div className="mona-contact-form mb-[40px]">
                 <div className="contact-heading mb-[20px]">
                   <h2 className="text-left text-[48px] max-[1199px]:text-[30px] max-[991px]:text-[36px] max-[767px]:text-[24px]">
                     Contact Me
@@ -51,29 +76,10 @@ export default function ContactPage() {
 
                 <ContactForm />
               </div>
-            </div>
+            </AnimatedSection>
           </div>
 
-          <div className="flex flex-wrap items-start">
-            <article className="single-contact-card mb-[80px] w-full min-[992px]:w-1/3">
-              <h2>Email</h2>
-              <h6>
-                <a
-                  href="mailto:tobiadebayoart@gmail.com"
-                  className="text-[#333333] transition-colors duration-500 hover:text-[#ee0101]"
-                >
-                  tobiadebayoart@gmail.com
-                </a>
-              </h6>
-            </article>
 
-            <article className="single-contact-card mb-[80px] w-full min-[992px]:w-1/3">
-              <h2>Social Media</h2>
-                <SocialIcons items={TOBI_SOCIAL_LINKS} containerClassName="flex-wrap justify-center gap-[20px]" />
-              </article>
-
-            <div className="hidden min-[992px]:block min-[992px]:w-1/3" aria-hidden="true" />
-          </div>
         </div>
       </section>
     </main>

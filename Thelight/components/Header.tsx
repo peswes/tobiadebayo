@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 
 const NAV_ITEMS = [
   { href: '/', label: 'Home' },
@@ -64,20 +65,7 @@ export default function Header() {
                 />
               </Link>
 
-              <button
-                type="button"
-                aria-label={isMenuOpen ? 'Close navigation menu' : 'Toggle navigation menu'}
-                onClick={() => setIsMenuOpen((prev) => !prev)}
-                className={`relative z-[1200] flex h-[44px] w-[44px] items-center justify-center rounded-full transition-all duration-300 min-[992px]:hidden ${
-                  isMenuOpen ? 'text-[#ee0101]' : 'text-[#f9f9f9]'
-                }`}
-              >
-                {isMenuOpen ? (
-                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-                ) : (
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-                )}
-              </button>
+              {/* Mobile toggle moved to bottom pill */}
 
               <div className="classy-menu hidden items-center min-[992px]:flex">
                 <div className="classynav">
@@ -86,7 +74,12 @@ export default function Header() {
                       const isActive = pathname === item.href
 
                       return (
-                        <li key={item.href} className="list-none">
+                        <motion.li 
+                          key={item.href} 
+                          className="list-none"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           <Link
                             href={item.href}
                             className={`flex h-[44px] items-center px-[12px] text-[18px] leading-[1] no-underline transition-colors hover:no-underline min-[992px]:max-[1199px]:px-[10px] min-[992px]:max-[1199px]:text-[14px] ${
@@ -97,7 +90,7 @@ export default function Header() {
                           >
                             {item.label}
                           </Link>
-                        </li>
+                        </motion.li>
                       )
                     })}
                   </ul>
@@ -111,78 +104,94 @@ export default function Header() {
 
       <div className="h-[70px] min-[992px]:h-[100px]" aria-hidden="true" />
 
-      {/* Modal Backdrop — visible when menu is open */}
-      {isMenuOpen && (
-        <div
-          className="fixed inset-0 z-[900] bg-black/60"
-          onClick={() => setIsMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Contextual Popover Panel — visible when menu is open */}
-      {isMenuOpen && (
-        <div
-          className="fixed bottom-[100px] left-1/2 -translate-x-1/2 z-[950] w-[90%] max-w-[420px] rounded-2xl bg-[#111111] p-2 shadow-[0_20px_40px_rgba(0,0,0,0.6)] min-[992px]:hidden"
-        >
-          {NAV_ITEMS.map((item) => {
-            const isActive = pathname === item.href
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-colors duration-200 ${
-                  isActive
-                    ? 'bg-[#ee0101]/10 text-[#ee0101]'
-                    : 'text-[#888888] hover:bg-[#222222] hover:text-[#f9f9f9]'
-                }`}
+      {/* Mobile Navigation Pattern */}
+      <div className="min-[992px]:hidden relative">
+        {/* 1. The Floating Pill */}
+        <div className="fixed bottom-6 left-0 right-0 mx-auto w-fit z-[60]">
+          <div className="flex items-center bg-zinc-900/95 border border-white/10 rounded-full p-1 shadow-2xl backdrop-blur-xl">
+            
+            {/* Primary Action */}
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link 
+                href="/" 
+                className="flex items-center gap-2 py-1 px-4 text-white font-medium text-[14px] hover:text-[#ee0101] transition-colors rounded-full"
                 onClick={() => setIsMenuOpen(false)}
               >
                 <span className="flex items-center justify-center">
-                  {getIconForLabel(item.label)}
+                  {getIconForLabel('Home')}
                 </span>
-                <span className="text-[16px] font-medium">{item.label}</span>
+                Home
               </Link>
-            )
-          })}
+            </motion.div>
+            
+            {/* Divider */}
+            <div className="h-5 w-[1px] bg-white/10 mx-1" />
+            
+            {/* Menu Toggle */}
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+              className="flex items-center justify-center py-1 px-4 text-white hover:text-[#ee0101] transition-colors rounded-full"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {isMenuOpen ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+              )}
+            </motion.button>
+          </div>
         </div>
-      )}
 
-      {/* Floating Bottom Pill — always visible on mobile */}
-      <div
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[1000] flex h-[64px] items-center justify-between gap-1 sm:gap-2 rounded-full bg-[#111111]/95 backdrop-blur-xl border border-[#333333] px-4 shadow-[0_20px_40px_rgba(0,0,0,0.6)] min-[992px]:hidden w-[95%] max-w-[420px]"
-      >
-        {/* Left Segment — Primary Home Action */}
-        <Link
-          href="/"
-          className="flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2 text-[#f9f9f9] transition-colors duration-200 hover:text-[#ee0101]"
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <span className="flex items-center justify-center">
-            {getIconForLabel('Home')}
-          </span>
-          <span className="text-[15px] font-medium">Home</span>
-        </Link>
-
-        {/* Faint vertical divider */}
-        <div className="h-6 w-px border-r border-[#333333]" aria-hidden="true" />
-
-        {/* Right Segment — Menu Toggle */}
-        <button
-          type="button"
-          aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="flex flex-1 items-center justify-center gap-2 rounded-full px-4 py-2 text-[#f9f9f9] transition-colors duration-200 hover:text-[#ee0101]"
-        >
-          <span className="flex items-center justify-center">
-            {isMenuOpen ? (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            ) : (
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-            )}
-          </span>
-          <span className="text-[15px] font-medium">Menu</span>
-        </button>
+        {/* 2. Menu and Backdrop */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <>
+              {/* Backdrop */}
+              <motion.div 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                exit={{ opacity: 0 }} 
+                onClick={() => setIsMenuOpen(false)} 
+                className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm" 
+                aria-hidden="true"
+              />
+              
+              {/* Command Palette Card */}
+              <motion.div 
+                initial={{ y: "100%", opacity: 0, scale: 0.95 }} 
+                animate={{ y: 0, opacity: 1, scale: 1 }} 
+                exit={{ y: "100%", opacity: 0, scale: 0.95 }} 
+                transition={{ type: "spring", damping: 30, stiffness: 300 }} 
+                className="fixed bottom-12 left-0 right-0 mx-auto z-50 bg-zinc-900/95 backdrop-blur-2xl border border-white/10 rounded-3xl overflow-hidden flex flex-col w-[90%] max-w-sm shadow-2xl"
+              >
+                <div className="flex flex-col p-3">
+                  {NAV_ITEMS.map((item) => {
+                    const isActive = pathname === item.href
+                    return (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        className={`flex items-center gap-3 p-4 rounded-xl transition-all duration-200 ${
+                          isActive 
+                            ? 'bg-red-600/20 text-red-500 font-medium' 
+                            : 'text-white hover:bg-white/10 hover:text-[#ee0101]'
+                        }`}
+                      >
+                        <span className="flex items-center justify-center">
+                          {getIconForLabel(item.label)}
+                        </span>
+                        <span className="text-[16px] font-medium">{item.label}</span>
+                      </Link>
+                    )
+                  })}
+                </div>
+              </motion.div>
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </>
   )

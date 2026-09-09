@@ -40,25 +40,29 @@ export default function PublicationsPage() {
             Selected press and publications.
           </p>
 
-          <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-2 max-[991px]:max-w-[800px] max-[991px]:mx-auto md:gap-[30px]">
+          <div className="flex flex-wrap justify-center md:justify-start gap-[24px] md:gap-[30px]">
             {publications.map((item) => (
-              <article key={item.title} className="content-card section-gap-30">
-                <div className="gallery-item">
-                  <div className="relative h-[320px] w-full overflow-hidden rounded-[20px] md:h-[360px]">
-                    <Image src={item.image} alt={item.title} fill className="gallery-image rounded-[20px]" sizes="(max-width: 639px) 100vw, 50vw" />
-                    <div className="gallery-overlay rounded-b-[20px]">
-                      <h4>{item.title}</h4>
-                      <p>{item.year}</p>
+              <article key={item.title} className="content-card section-gap-30 w-full max-w-[460px] bg-dots rounded-[24px] p-[20px] shadow-lg flex flex-col justify-between">
+                <div className="bg-white rounded-[20px] overflow-hidden flex flex-col h-full shadow-sm">
+                  <div className="gallery-item w-full">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden bg-[#f5f5f5]">
+                      <Image src={item.image} alt={item.title} fill className="gallery-image !object-contain p-2" sizes="(max-width: 639px) 100vw, 50vw" />
+                      <div className="gallery-overlay">
+                        <h4>{item.title}</h4>
+                        <p>{item.year}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <p className="about-body" style={{ textAlign: "center" }}>
-                  {item.summary}
-                </p>
-                <div style={{ textAlign: "center" }}>
-                  <a href={item.url} target="_blank" rel="noopener noreferrer" className="primary-button">
-                    Read More
-                  </a>
+                  <div className="mt-[20px] mb-[30px] flex-grow px-[20px]">
+                    <p className="about-body" style={{ textAlign: "center" }}>
+                      {item.summary}
+                    </p>
+                  </div>
+                  <div className="mb-[30px]" style={{ textAlign: "center" }}>
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-block bg-black text-white px-8 py-3 rounded-full hover:bg-[#ee0101] transition-colors duration-300">
+                      Read More
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}

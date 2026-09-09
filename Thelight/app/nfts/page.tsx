@@ -36,13 +36,20 @@ export default function NFTsPage() {
             !
           </p>
 
-          <div className="grid grid-cols-1 gap-[24px] min-[640px]:grid-cols-2 max-[991px]:max-w-[600px] max-[991px]:mx-auto md:gap-[30px]">
+          <div className="w-full max-w-[375px] mt-10 mx-auto md:mx-0">
             {nftItems.map((item) => (
-              <article key={item.title} className="content-card section-gap-30">
-                <a href={item.url} target="_blank" rel="noopener noreferrer">
-                  <div className="gallery-item">
-                    <div className="relative h-[320px] w-full overflow-hidden rounded-[20px] md:h-[360px]">
-                      <Image src={item.src} alt={item.title} fill className="gallery-image rounded-[20px]" sizes="(max-width: 639px) 100vw, 50vw" />
+              <article key={item.title} className="content-card w-full bg-dots rounded-[24px] p-[20px] shadow-lg">
+                <a href={item.url} target="_blank" rel="noopener noreferrer" className="block w-full bg-white rounded-[20px] overflow-hidden">
+                  <div className="gallery-item w-full">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[20px] bg-[#f5f5f5]">
+                      <Image 
+                        src={item.src} 
+                        alt={item.title} 
+                        fill
+                        className="gallery-image rounded-[20px] !object-contain p-2" 
+                        sizes="(max-width: 639px) 100vw, 50vw" 
+                        priority
+                      />
                       <div className="gallery-overlay rounded-b-[20px]">
                         <h4>{item.title}</h4>
                         <p>Price: {item.price}</p>
